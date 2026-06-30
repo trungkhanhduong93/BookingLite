@@ -161,7 +161,7 @@
              <div class="text-[10px] font-bold text-base-content/40 uppercase">CN</div>
            </div>
            
-           <div class="grid grid-cols-7 gap-1 text-center">
+           <div class="grid grid-cols-7 gap-1 text-center" id="dateGrid">
              <!-- Prev month -->
              <button class="w-full aspect-square flex items-center justify-center rounded-full text-sm text-base-content/20 font-medium cursor-default">25</button>
              <button class="w-full aspect-square flex items-center justify-center rounded-full text-sm text-base-content/20 font-medium cursor-default">26</button>
@@ -187,7 +187,7 @@
         <div>
            <label class="label p-0 mb-3"><span class="label-text font-bold text-base-content">Khung giờ</span></label>
            <!-- Time selector Grid -->
-           <div class="grid grid-cols-4 gap-2.5">
+           <div class="grid grid-cols-4 gap-2.5" id="timeGrid">
              <button class="py-2 rounded-lg border border-base-200 bg-base-50/50 hover:border-brand/40 hover:bg-brand/5 hover:text-brand text-base-content/70 font-medium transition-all text-sm">18:00</button>
              <button class="py-2 rounded-lg border border-base-200 bg-base-50/50 hover:border-brand/40 hover:bg-brand/5 hover:text-brand text-base-content/70 font-medium transition-all text-sm">18:30</button>
              <button class="py-2 rounded-lg border border-brand bg-brand text-white font-bold shadow-md shadow-brand/20 transition-all text-sm">19:00</button>
@@ -251,6 +251,31 @@
         ${i<STEPS.length-1?`<hr class="${STEPS[i+1].done?'bg-brand':''}"/>`:''}
       </li>`).join('');
     lucide.createIcons();
+
+    // UI Interaction for Time Modal
+    const dateGrid = document.getElementById('dateGrid');
+    if (dateGrid) {
+      dateGrid.addEventListener('click', (e) => {
+        const btn = e.target.closest('button');
+        if (!btn || btn.classList.contains('cursor-default')) return;
+        dateGrid.querySelectorAll('button:not(.cursor-default)').forEach(b => {
+          b.className = 'w-full aspect-square flex items-center justify-center rounded-full text-sm hover:bg-brand/10 hover:text-brand font-medium transition-colors text-base-content/80';
+        });
+        btn.className = 'w-full aspect-square flex items-center justify-center rounded-full text-sm bg-brand text-white font-bold shadow-md shadow-brand/30';
+      });
+    }
+
+    const timeGrid = document.getElementById('timeGrid');
+    if (timeGrid) {
+      timeGrid.addEventListener('click', (e) => {
+        const btn = e.target.closest('button');
+        if (!btn) return;
+        timeGrid.querySelectorAll('button').forEach(b => {
+          b.className = 'py-2 rounded-lg border border-base-200 bg-base-50/50 hover:border-brand/40 hover:bg-brand/5 hover:text-brand text-base-content/70 font-medium transition-all text-sm';
+        });
+        btn.className = 'py-2 rounded-lg border border-brand bg-brand text-white font-bold shadow-md shadow-brand/20 transition-all text-sm';
+      });
+    }
   </script>
   <script src="spa.js"></script>
 </body>
