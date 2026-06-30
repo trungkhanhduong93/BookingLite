@@ -35,13 +35,8 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
   
-    /* View Transition SPA config */
-    .drawer-side { view-transition-name: sidebar; }
-    .navbar { view-transition-name: topbar; }
-    main { animation: springFadeIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
-    @keyframes springFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
   </style>
-<meta name="view-transition" content="same-origin" />
 </head>
 <body class="min-h-screen bg-brand-bg sm:flex sm:items-center sm:justify-center sm:py-6">
 
