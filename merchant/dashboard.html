@@ -68,12 +68,18 @@
   <div tabindex="0" role="button" class="btn btn-ghost btn-sm btn-circle indicator">
     <span class="indicator-item badge badge-xs badge-error"></span><i data-lucide="bell" class="w-5 h-5"></i>
   </div>
-  <ul tabindex="0" class="dropdown-content menu z-[1] p-2 rounded-box mt-3 gap-1" style="width: 320px;">
-    <li class="menu-title text-brand font-bold text-sm">Thông báo mới (3)</li>
-    <li><a class="gap-3 items-start p-3"><div class="mt-0.5"><i data-lucide="calendar-check" class="text-brand w-5 h-5"></i></div><div><p class="font-bold text-sm">Đơn đặt bàn mới</p><p class="text-xs text-base-content/60 leading-relaxed mt-1">Trần Thu Hà vừa đặt bàn lúc 19:00</p></div></a></li>
-    <li><a class="gap-3 items-start p-3"><div class="mt-0.5"><i data-lucide="info" class="text-info w-5 h-5"></i></div><div><p class="font-bold text-sm">Cập nhật hệ thống</p><p class="text-xs text-base-content/60 leading-relaxed mt-1">Tính năng Sơ đồ bàn đã sẵn sàng</p></div></a></li>
-    <li class="p-3 mt-1 text-center text-xs font-semibold text-brand hover:underline cursor-pointer">Xem tất cả thông báo</li>
-  </ul>
+  <div tabindex="0" class="dropdown-content z-[1] p-2 rounded-box mt-3 flex flex-col gap-1" style="width: 320px;">
+    <div class="px-3 py-2 text-brand font-bold text-sm">Thông báo mới (3)</div>
+    <div class="flex gap-3 items-start p-3 hover:bg-base-200 active:bg-base-300 rounded-lg cursor-pointer transition-colors">
+      <div class="mt-0.5"><i data-lucide="calendar-check" class="text-brand w-5 h-5"></i></div>
+      <div><p class="font-bold text-sm">Đơn đặt bàn mới</p><p class="text-xs text-base-content/60 leading-relaxed mt-0.5">Trần Thu Hà vừa đặt bàn lúc 19:00</p></div>
+    </div>
+    <div class="flex gap-3 items-start p-3 hover:bg-base-200 active:bg-base-300 rounded-lg cursor-pointer transition-colors">
+      <div class="mt-0.5"><i data-lucide="info" class="text-info w-5 h-5"></i></div>
+      <div><p class="font-bold text-sm">Cập nhật hệ thống</p><p class="text-xs text-base-content/60 leading-relaxed mt-0.5">Tính năng Sơ đồ bàn đã sẵn sàng</p></div>
+    </div>
+    <div class="p-2 mt-1 text-center text-xs font-semibold text-brand hover:underline cursor-pointer">Xem tất cả thông báo</div>
+  </div>
 </div>
           <div class="avatar placeholder"><div class="bg-brand text-white rounded-full w-9"><span class="text-sm">TQ</span></div></div>
         </div>
