@@ -185,8 +185,7 @@ function applyDemoBranchData() {
 
 document.addEventListener('DOMContentLoaded', applyDemoBranchData);
 
-document.addEventListener('click',
-, (e) => {
+document.addEventListener('click', (e) => {
     const link = e.target.closest('.branch-link');
     if (link) {
         e.preventDefault();
