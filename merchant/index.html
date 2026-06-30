@@ -19,7 +19,14 @@
     .navlink { transition: all 0.2s ease-out; }
     .navlink:hover:not(.active) { background-color: rgba(242,101,34, 0.08); color: #F26522; transform: translateX(4px); }
     .navlink:hover:not(.active) i { color: #F26522; }
+  
+    /* Ultra-fast native SPA transition */
+    .drawer-side { view-transition-name: sidebar; }
+    .navbar { view-transition-name: topbar; }
+    main { view-transition-name: main-content; }
+    ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.15s; }
   </style>
+  <meta name="view-transition" content="same-origin" />
 </head>
 <body class="min-h-screen bg-base-100">
 
@@ -87,7 +94,7 @@
               <i data-lucide="arrow-left" class="w-4 h-4 text-base-content/70"></i>
               <span class="text-xs font-semibold">Đặt bàn · Trum Quán</span>
             </div>
-            <i data-lucide="house" class="w-4 h-4 text-base-content/70"></i>
+            <i data-lucide="home" class="w-4 h-4 text-base-content/70"></i>
           </div>
 
           <!-- mini stepper (bước 1) -->

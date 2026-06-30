@@ -32,7 +32,14 @@
     .navlink { transition: all 0.2s ease-out; }
     .navlink:hover:not(.active) { background-color: rgba(242,101,34, 0.08); color: #F26522; transform: translateX(4px); }
     .navlink:hover:not(.active) i { color: #F26522; }
+  
+    /* Ultra-fast native SPA transition */
+    .drawer-side { view-transition-name: sidebar; }
+    .navbar { view-transition-name: topbar; }
+    main { view-transition-name: main-content; }
+    ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.15s; }
   </style>
+  <meta name="view-transition" content="same-origin" />
 </head>
 <body class="min-h-screen bg-brand-bg sm:flex sm:items-center sm:justify-center sm:py-6">
 
@@ -44,7 +51,7 @@
         <a href="index.html" class="btn btn-ghost btn-sm btn-circle" title="Quay lại trang quán"><i data-lucide="arrow-left" class="w-5 h-5"></i></a>
         <span class="font-semibold ml-1">Đặt bàn · Trum Quán</span>
       </div>
-      <a href="../index.html" class="btn btn-ghost btn-sm btn-circle" title="Về trang chủ"><i data-lucide="house" class="w-5 h-5"></i></a>
+      <a href="../index.html" class="btn btn-ghost btn-sm btn-circle" title="Về trang chủ"><i data-lucide="home" class="w-5 h-5"></i></a>
     </div>
 
     <!-- Steps (bước 1 đang chọn) -->
