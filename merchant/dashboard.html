@@ -7,11 +7,12 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <meta name="theme-color" content="#F26522">
   <title>Tổng quan — Booking Lite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="../style.css" />
   <style>
     [data-theme="light"] { --p: 19 89% 54%; --pf: 19 89% 46%; --pc: 0 0% 100%; }
-    html, body { font-family: 'Be Vietnam Pro', sans-serif; }
+    html, body { font-family: 'Inter', sans-serif; }
     body { background-image: radial-gradient(34rem 22rem at 100% -6%, rgba(242,101,34,.10), transparent 60%), radial-gradient(34rem 22rem at 0% -6%, rgba(0,103,177,.10), transparent 60%), radial-gradient(rgba(15,23,42,.05) 1px, transparent 1px); background-size: 100% 100%, 100% 100%, 22px 22px; background-attachment: fixed; }
     .navlink.active { background: hsl(var(--p)); color: #fff; view-transition-name: active-menu; }
     ::view-transition-group(active-menu) { animation-duration: 0.4s; animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
@@ -38,6 +39,8 @@
     @keyframes fadeScale { from { opacity: 0; transform: scale(0.98) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
     main { animation: fadeScale 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
     ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.2s; }
+      .dropdown-content { background: rgba(255,255,255,0.95) !important; backdrop-filter: blur(16px) !important; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.15) !important; animation: dropDown 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); transform-origin: top; }
+    @keyframes dropDown { from { opacity: 0; transform: scaleY(0.95) translateY(-5px); } to { opacity: 1; transform: scaleY(1) translateY(0); } }
   </style>
   <meta name="view-transition" content="same-origin" />
 </head>
@@ -52,8 +55,8 @@
       <!-- Topbar -->
       <header class="navbar bg-base-100 border-b border-base-200 sticky top-0 z-30 px-4">
         <label for="nav" class="btn btn-ghost btn-sm btn-circle lg:hidden mr-1"><i data-lucide="menu" class="w-5 h-5"></i></label>
-        <div class="flex-1">
-          <h1 class="text-lg font-bold">Tổng quan</h1>
+        <div class="flex-1 flex items-baseline gap-3">
+          <h1 class="text-xl font-bold">Tổng quan</h1>
           <p class="text-xs text-base-content/50 hidden sm:block">Hôm nay · Thứ 3, 30/06/2026</p>
         </div>
         <div class="flex-none gap-1.5">
@@ -61,7 +64,17 @@
             <input readonly value="booking-lite.vn/r/trum-quan" class="input input-bordered input-sm join-item text-brand w-48" />
             <button class="btn btn-primary btn-sm join-item gap-1"><i data-lucide="share-2" class="w-4 h-4"></i> Chia sẻ</button>
           </div>
-          <button class="btn btn-ghost btn-sm btn-circle indicator"><span class="indicator-item badge badge-xs badge-error"></span><i data-lucide="bell" class="w-5 h-5"></i></button>
+          <div class="dropdown dropdown-end">
+  <div tabindex="0" role="button" class="btn btn-ghost btn-sm btn-circle indicator">
+    <span class="indicator-item badge badge-xs badge-error"></span><i data-lucide="bell" class="w-5 h-5"></i>
+  </div>
+  <ul tabindex="0" class="dropdown-content menu z-[1] w-72 p-2 rounded-box mt-3 gap-1">
+    <li class="menu-title text-brand font-bold text-sm">Thông báo mới (3)</li>
+    <li><a class="gap-3 items-start p-3"><div class="mt-0.5"><i data-lucide="calendar-check" class="text-brand w-5 h-5"></i></div><div><p class="font-bold text-sm">Đơn đặt bàn mới</p><p class="text-xs text-base-content/60 leading-relaxed mt-1">Trần Thu Hà vừa đặt bàn lúc 19:00</p></div></a></li>
+    <li><a class="gap-3 items-start p-3"><div class="mt-0.5"><i data-lucide="info" class="text-info w-5 h-5"></i></div><div><p class="font-bold text-sm">Cập nhật hệ thống</p><p class="text-xs text-base-content/60 leading-relaxed mt-1">Tính năng Sơ đồ bàn đã sẵn sàng</p></div></a></li>
+    <li class="p-3 mt-1 text-center text-xs font-semibold text-brand hover:underline cursor-pointer">Xem tất cả thông báo</li>
+  </ul>
+</div>
           <div class="avatar placeholder"><div class="bg-brand text-white rounded-full w-9"><span class="text-sm">TQ</span></div></div>
         </div>
       </header>
@@ -71,22 +84,22 @@
         <!-- KPI cards -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body p-4">
-            <div class="flex items-center justify-between"><span class="text-xs text-base-content/50">Booking hôm nay</span><i data-lucide="calendar-check" class="w-4 h-4 text-brand"></i></div>
+            <div class="flex items-center justify-between"><span class="text-[11px] font-bold uppercase tracking-wider text-base-content/60">Booking hôm nay</span><i data-lucide="calendar-check" class="w-4 h-4 text-brand"></i></div>
             <div class="text-2xl font-bold text-brand mt-1">8</div>
             <div class="text-[11px] text-success inline-flex items-center gap-1"><i data-lucide="trending-up" class="w-3 h-3"></i> +3 so với hôm qua</div>
           </div></div>
           <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body p-4">
-            <div class="flex items-center justify-between"><span class="text-xs text-base-content/50">Tổng khách</span><i data-lucide="users" class="w-4 h-4 text-ipos"></i></div>
+            <div class="flex items-center justify-between"><span class="text-[11px] font-bold uppercase tracking-wider text-base-content/60">Tổng khách</span><i data-lucide="users" class="w-4 h-4 text-ipos"></i></div>
             <div class="text-2xl font-bold mt-1 text-ipos">34</div>
             <div class="text-[11px] text-base-content/50">TB 4.3 khách/bàn</div>
           </div></div>
           <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body p-4">
-            <div class="flex items-center justify-between"><span class="text-xs text-base-content/50">Tỉ lệ lấp đầy</span><i data-lucide="pie-chart" class="w-4 h-4 text-base-content/40"></i></div>
+            <div class="flex items-center justify-between"><span class="text-[11px] font-bold uppercase tracking-wider text-base-content/60">Tỉ lệ lấp đầy</span><i data-lucide="pie-chart" class="w-4 h-4 text-base-content/40"></i></div>
             <div class="text-2xl font-bold mt-1">75%</div>
             <div class="text-[11px] text-base-content/50">15/20 bàn</div>
           </div></div>
           <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body p-4">
-            <div class="flex items-center justify-between"><span class="text-xs text-base-content/50">Chờ xác nhận</span><i data-lucide="clock" class="w-4 h-4 text-warning"></i></div>
+            <div class="flex items-center justify-between"><span class="text-[11px] font-bold uppercase tracking-wider text-base-content/60">Chờ xác nhận</span><i data-lucide="clock" class="w-4 h-4 text-warning"></i></div>
             <div class="text-2xl font-bold mt-1">3</div>
             <div class="text-[11px] text-warning">Cần xử lý</div>
           </div></div>

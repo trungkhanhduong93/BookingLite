@@ -7,11 +7,12 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <meta name="theme-color" content="#F26522">
   <title>Báo cáo — Booking Lite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="../style.css" />
   <style>
     [data-theme="light"] { --p: 19 89% 54%; --pf: 19 89% 46%; --pc: 0 0% 100%; }
-    html, body { font-family: 'Be Vietnam Pro', sans-serif; }
+    html, body { font-family: 'Inter', sans-serif; }
     body { background-image: radial-gradient(34rem 22rem at 100% -6%, rgba(242,101,34,.10), transparent 60%), radial-gradient(34rem 22rem at 0% -6%, rgba(0,103,177,.10), transparent 60%), radial-gradient(rgba(15,23,42,.05) 1px, transparent 1px); background-size: 100% 100%, 100% 100%, 22px 22px; background-attachment: fixed; }
     .navlink.active { background: hsl(var(--p)); color: #fff; view-transition-name: active-menu; }
     ::view-transition-group(active-menu) { animation-duration: 0.4s; animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); } .navlink.active i { color: #fff; }
@@ -31,6 +32,8 @@
     @keyframes fadeScale { from { opacity: 0; transform: scale(0.98) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
     main { animation: fadeScale 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
     ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.2s; }
+      .dropdown-content { background: rgba(255,255,255,0.95) !important; backdrop-filter: blur(16px) !important; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.15) !important; animation: dropDown 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); transform-origin: top; }
+    @keyframes dropDown { from { opacity: 0; transform: scaleY(0.95) translateY(-5px); } to { opacity: 1; transform: scaleY(1) translateY(0); } }
   </style>
   <meta name="view-transition" content="same-origin" />
 </head>
@@ -41,7 +44,8 @@
 
       <header class="navbar bg-base-100 border-b border-base-200 sticky top-0 z-30 px-4">
         <label for="nav" class="btn btn-ghost btn-sm btn-circle lg:hidden mr-1"><i data-lucide="menu" class="w-5 h-5"></i></label>
-        <div class="flex-1"><h1 class="text-lg font-bold">Báo cáo & phân tích</h1></div>
+        <div class="flex-1 flex items-baseline gap-3">
+          <h1 class="text-xl font-bold">Báo cáo & phân tích</h1></div>
         <div class="flex-none gap-1.5">
           <select class="select select-bordered select-sm hidden sm:block"><option>7 ngày qua</option><option>30 ngày qua</option><option>Tháng này</option></select>
           <button class="btn btn-outline btn-sm gap-1"><i data-lucide="download" class="w-4 h-4"></i> <span class="hidden sm:inline">Xuất</span></button>
@@ -53,16 +57,16 @@
         <!-- KPI -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body p-4">
-            <span class="text-xs text-base-content/50">Tổng lượt đặt</span><div class="text-2xl font-bold mt-1">312</div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-base-content/60">Tổng lượt đặt</span><div class="text-2xl font-bold mt-1">312</div>
             <div class="text-[11px] text-success inline-flex items-center gap-1"><i data-lucide="trending-up" class="w-3 h-3"></i> +18% so kỳ trước</div></div></div>
           <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body p-4">
-            <span class="text-xs text-base-content/50">Khách phục vụ</span><div class="text-2xl font-bold mt-1 text-ipos">1.142</div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-base-content/60">Khách phục vụ</span><div class="text-2xl font-bold mt-1 text-ipos">1.142</div>
             <div class="text-[11px] text-success inline-flex items-center gap-1"><i data-lucide="trending-up" class="w-3 h-3"></i> +12%</div></div></div>
           <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body p-4">
-            <span class="text-xs text-base-content/50">Tỉ lệ no-show</span><div class="text-2xl font-bold mt-1 text-error">6,4%</div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-base-content/60">Tỉ lệ no-show</span><div class="text-2xl font-bold mt-1 text-error">6,4%</div>
             <div class="text-[11px] text-success inline-flex items-center gap-1"><i data-lucide="trending-down" class="w-3 h-3"></i> -1,2%</div></div></div>
           <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body p-4">
-            <span class="text-xs text-base-content/50">Lấp đầy TB</span><div class="text-2xl font-bold mt-1">71%</div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-base-content/60">Lấp đầy TB</span><div class="text-2xl font-bold mt-1">71%</div>
             <div class="text-[11px] text-base-content/50">cao điểm 19:00</div></div></div>
         </div>
 
