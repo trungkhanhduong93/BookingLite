@@ -17,11 +17,18 @@ document.addEventListener('click', async (e) => {
         const updateDOM = () => {
             document.title = doc.title;
             
-            const currentMain = document.querySelector('main');
-            const newMain = doc.querySelector('main');
-            if (currentMain && newMain) {
-                currentMain.innerHTML = newMain.innerHTML;
-                currentMain.className = newMain.className;
+            const currentContent = document.querySelector('.drawer-content');
+            const newContent = doc.querySelector('.drawer-content');
+            if (currentContent && newContent) {
+                currentContent.innerHTML = newContent.innerHTML;
+                currentContent.className = newContent.className;
+            } else {
+                const currentMain = document.querySelector('main');
+                const newMain = doc.querySelector('main');
+                if (currentMain && newMain) {
+                    currentMain.innerHTML = newMain.innerHTML;
+                    currentMain.className = newMain.className;
+                }
             }
             
             if (currentActive) currentActive.classList.remove('active');

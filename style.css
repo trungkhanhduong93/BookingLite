@@ -26,3 +26,11 @@ body {
     background-color: #f26522 !important;
     border-color: #f26522 !important;
 }
+
+
+/* Mobile Premium UI Fixes */
+.badge { white-space: nowrap !important; }
+.toggle { flex-shrink: 0 !important; }
+@media (max-width: 639px) {
+  .badge-lg { height: auto !important; padding: 0.5rem 1rem !important; line-height: 1.4 !important; text-align: center; white-space: normal !important; }
+}
