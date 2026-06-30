@@ -10,5 +10,8 @@ Desktop.ini
 # Netlify
 .netlify/
 
+# Bản đóng gói
+*.zip
+
 # Claude local
 .claude/settings.local.json
