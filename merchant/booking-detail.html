@@ -118,7 +118,7 @@
             </ul>
           </details>
         </div>
-        <button class="btn btn-outline btn-block btn-sm gap-2"><i data-lucide="clock" class="w-4 h-4"></i> Đổi giờ</button>
+        <button class="btn btn-outline btn-block btn-sm gap-2" onclick="changeTimeModal.showModal()"><i data-lucide="clock" class="w-4 h-4"></i> Đổi giờ</button>
         <button class="btn btn-outline btn-error btn-block btn-sm gap-2" onclick="cancelModal.showModal()"><i data-lucide="x" class="w-4 h-4"></i> Huỷ đơn</button>
       </div></div>
 
@@ -131,6 +131,81 @@
 
     <p class="text-xs text-base-content/40 text-center lg:col-span-3">Tác giả: trung.duong (Trum)</p>
   </main>
+
+  <!-- Modal Đổi Giờ -->
+  <dialog id="changeTimeModal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box p-0 overflow-hidden max-w-sm">
+      <div class="px-6 py-4 border-b border-base-200 flex justify-between items-center bg-base-50/50">
+        <h3 class="font-bold text-lg flex items-center gap-2 text-base-content"><i data-lucide="calendar-clock" class="w-5 h-5 text-brand"></i> Thay đổi thời gian</h3>
+        <form method="dialog"><button class="btn btn-sm btn-circle btn-ghost"><i data-lucide="x" class="w-4 h-4"></i></button></form>
+      </div>
+      <div class="p-6 space-y-6">
+        <!-- Date Picker -->
+        <div>
+           <div class="flex items-center justify-between mb-3">
+             <label class="label p-0"><span class="label-text font-bold text-base-content">Ngày nhận bàn</span></label>
+             <div class="flex items-center gap-2">
+               <button class="w-6 h-6 flex items-center justify-center rounded-full hover:bg-base-200 text-base-content/60 transition-colors"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
+               <span class="text-[13px] font-bold text-brand">Tháng 6, 2026</span>
+               <button class="w-6 h-6 flex items-center justify-center rounded-full hover:bg-base-200 text-base-content/60 transition-colors"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+             </div>
+           </div>
+           
+           <div class="grid grid-cols-7 gap-1 text-center mb-1">
+             <div class="text-[10px] font-bold text-base-content/40 uppercase">T2</div>
+             <div class="text-[10px] font-bold text-base-content/40 uppercase">T3</div>
+             <div class="text-[10px] font-bold text-base-content/40 uppercase">T4</div>
+             <div class="text-[10px] font-bold text-base-content/40 uppercase">T5</div>
+             <div class="text-[10px] font-bold text-base-content/40 uppercase">T6</div>
+             <div class="text-[10px] font-bold text-base-content/40 uppercase">T7</div>
+             <div class="text-[10px] font-bold text-base-content/40 uppercase">CN</div>
+           </div>
+           
+           <div class="grid grid-cols-7 gap-1 text-center">
+             <!-- Prev month -->
+             <button class="w-full aspect-square flex items-center justify-center rounded-full text-sm text-base-content/20 font-medium cursor-default">25</button>
+             <button class="w-full aspect-square flex items-center justify-center rounded-full text-sm text-base-content/20 font-medium cursor-default">26</button>
+             <!-- Past dates -->
+             <button class="w-full aspect-square flex items-center justify-center rounded-full text-sm text-base-content/40 line-through cursor-default">27</button>
+             <button class="w-full aspect-square flex items-center justify-center rounded-full text-sm text-base-content/40 line-through cursor-default">28</button>
+             <button class="w-full aspect-square flex items-center justify-center rounded-full text-sm text-base-content/40 line-through cursor-default">29</button>
+             <!-- Active date -->
+             <button class="w-full aspect-square flex items-center justify-center rounded-full text-sm bg-brand text-white font-bold shadow-md shadow-brand/30">30</button>
+             <!-- Future dates -->
+             <button class="w-full aspect-square flex items-center justify-center rounded-full text-sm hover:bg-brand/10 hover:text-brand font-medium transition-colors text-base-content/80">1</button>
+             <button class="w-full aspect-square flex items-center justify-center rounded-full text-sm hover:bg-brand/10 hover:text-brand font-medium transition-colors text-base-content/80">2</button>
+             <button class="w-full aspect-square flex items-center justify-center rounded-full text-sm hover:bg-brand/10 hover:text-brand font-medium transition-colors text-base-content/80">3</button>
+             <button class="w-full aspect-square flex items-center justify-center rounded-full text-sm hover:bg-brand/10 hover:text-brand font-medium transition-colors text-base-content/80">4</button>
+             <button class="w-full aspect-square flex items-center justify-center rounded-full text-sm hover:bg-brand/10 hover:text-brand font-medium transition-colors text-base-content/80">5</button>
+             <button class="w-full aspect-square flex items-center justify-center rounded-full text-sm hover:bg-brand/10 hover:text-brand font-medium transition-colors text-base-content/80">6</button>
+             <button class="w-full aspect-square flex items-center justify-center rounded-full text-sm hover:bg-brand/10 hover:text-brand font-medium transition-colors text-base-content/80">7</button>
+             <button class="w-full aspect-square flex items-center justify-center rounded-full text-sm hover:bg-brand/10 hover:text-brand font-medium transition-colors text-base-content/80">8</button>
+           </div>
+        </div>
+
+        <!-- Time Picker -->
+        <div>
+           <label class="label p-0 mb-3"><span class="label-text font-bold text-base-content">Khung giờ</span></label>
+           <!-- Time selector Grid -->
+           <div class="grid grid-cols-4 gap-2.5">
+             <button class="py-2 rounded-lg border border-base-200 bg-base-50/50 hover:border-brand/40 hover:bg-brand/5 hover:text-brand text-base-content/70 font-medium transition-all text-sm">18:00</button>
+             <button class="py-2 rounded-lg border border-base-200 bg-base-50/50 hover:border-brand/40 hover:bg-brand/5 hover:text-brand text-base-content/70 font-medium transition-all text-sm">18:30</button>
+             <button class="py-2 rounded-lg border border-brand bg-brand text-white font-bold shadow-md shadow-brand/20 transition-all text-sm">19:00</button>
+             <button class="py-2 rounded-lg border border-base-200 bg-base-50/50 hover:border-brand/40 hover:bg-brand/5 hover:text-brand text-base-content/70 font-medium transition-all text-sm">19:30</button>
+             <button class="py-2 rounded-lg border border-base-200 bg-base-50/50 hover:border-brand/40 hover:bg-brand/5 hover:text-brand text-base-content/70 font-medium transition-all text-sm">20:00</button>
+             <button class="py-2 rounded-lg border border-base-200 bg-base-50/50 hover:border-brand/40 hover:bg-brand/5 hover:text-brand text-base-content/70 font-medium transition-all text-sm">20:30</button>
+             <button class="py-2 rounded-lg border border-base-200 bg-base-50/50 hover:border-brand/40 hover:bg-brand/5 hover:text-brand text-base-content/70 font-medium transition-all text-sm">21:00</button>
+             <button class="py-2 rounded-lg border border-base-200 bg-base-50/50 hover:border-brand/40 hover:bg-brand/5 hover:text-brand text-base-content/70 font-medium transition-all text-sm">21:30</button>
+           </div>
+        </div>
+      </div>
+      <div class="px-6 py-4 border-t border-base-200 flex justify-end gap-3 bg-base-50/50">
+        <form method="dialog"><button class="btn btn-outline border-base-300 hover:bg-base-200 px-6 font-medium">Bỏ qua</button></form>
+        <button class="btn btn-primary px-8 shadow-md shadow-brand/30" onclick="changeTimeModal.close(); lucide.createIcons();">Cập nhật</button>
+      </div>
+    </div>
+    <form method="dialog" class="modal-backdrop"><button>close</button></form>
+  </dialog>
 
   <!-- Modals Hủy Đơn -->
   <dialog id="cancelModal" class="modal modal-bottom sm:modal-middle">
