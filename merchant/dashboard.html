@@ -115,28 +115,25 @@
 
 
         <!-- Đơn hôm nay -->
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <h2 class="font-bold text-base">Đơn đặt bàn hôm nay</h2>
-            <a href="lich.html" class="btn btn-ghost btn-xs gap-1">Xem lịch <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+        <div class="mt-6">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="font-bold text-lg text-base-content">Đơn đặt bàn hôm nay</h2>
+            <a href="lich.html" class="text-brand font-semibold text-sm flex items-center gap-1 hover:opacity-80 transition-opacity">Xem lịch <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
           </div>
 
-          <div class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 mb-3">
-            <div class="tabs tabs-boxed bg-base-100 border border-base-200 w-max">
-              <a class="tab tab-active whitespace-nowrap" data-filter="all">Tất cả</a>
-              <a class="tab whitespace-nowrap" data-filter="pending">Chờ xác nhận</a>
-              <a class="tab whitespace-nowrap" data-filter="confirmed">Đã xác nhận</a>
-              <a class="tab whitespace-nowrap" data-filter="cancelled">Đã huỷ</a>
+          <!-- Premium App-like Chip Filters -->
+          <div class="overflow-x-auto no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 mb-4 pb-2">
+            <div class="flex gap-2 w-max">
+              <button class="tab-chip active px-4 py-2 rounded-full text-sm font-semibold bg-[#F26522] text-white shadow-md shadow-[#F26522]/30 transition-all active:scale-95 border border-[#F26522]" data-filter="all">Tất cả</button>
+              <button class="tab-chip px-4 py-2 rounded-full text-sm font-semibold bg-base-100 border border-base-200 text-base-content/60 hover:border-base-300 transition-all active:scale-95" data-filter="pending">Chờ xác nhận</button>
+              <button class="tab-chip px-4 py-2 rounded-full text-sm font-semibold bg-base-100 border border-base-200 text-base-content/60 hover:border-base-300 transition-all active:scale-95" data-filter="confirmed">Đã xác nhận</button>
+              <button class="tab-chip px-4 py-2 rounded-full text-sm font-semibold bg-base-100 border border-base-200 text-base-content/60 hover:border-base-300 transition-all active:scale-95" data-filter="cancelled">Đã huỷ</button>
             </div>
           </div>
 
-          <div class="card bg-base-100 shadow-sm border border-base-200 overflow-x-auto">
-            <table class="table">
-              <thead><tr class="text-base-content/60">
-                <th>Mã</th><th>Khách hàng</th><th class="hidden sm:table-cell">SĐT</th><th>Giờ</th><th class="text-center">Khách</th><th>Trạng thái</th><th></th>
-              </tr></thead>
-              <tbody id="tbody"></tbody>
-            </table>
+          <!-- App-style List Container instead of Table -->
+          <div class="bg-base-100 sm:border border-base-200 sm:rounded-2xl -mx-4 sm:mx-0 sm:shadow-sm" id="tbody">
+             <!-- JS renders list here -->
           </div>
         </div>
 
