@@ -1,0 +1,17 @@
+# Cấu hình Netlify — Booking Lite (site HTML tĩnh, không cần build)
+[build]
+  publish = "."
+
+# Bảo mật cơ bản cho mọi trang
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache font/ảnh tĩnh nếu sau này thêm (HTML luôn lấy bản mới)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

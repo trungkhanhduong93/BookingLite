@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="trung.duong (Trum)">
+  <title>Tạo quán — Booking Lite</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2' } } }
+    }
+  </script>
+  <style>
+    [data-theme="light"] { --p: 19 89% 54%; --pf: 19 89% 46%; --pc: 0 0% 100%; }
+    html, body { font-family: 'Be Vietnam Pro', sans-serif; }
+
+    /* Dropdown loại hình — màu theo brand cam */
+    .dropdown-content a:hover { background: #FFF7F2; }
+    .dropdown-content a.active,
+    .dropdown-content a.active:hover { background: hsl(var(--p)); color: #fff; }
+  </style>
+</head>
+<body class="min-h-screen bg-brand-bg">
+
+  <!-- Navbar -->
+  <div class="navbar bg-base-100 border-b border-base-200">
+    <div class="max-w-2xl mx-auto w-full px-4">
+      <a href="index.html" class="text-xl font-bold text-brand inline-flex items-center gap-2">
+        <i data-lucide="utensils-crossed" class="w-6 h-6"></i>
+        Booking<span class="text-base-content">Lite</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="max-w-2xl mx-auto px-4 py-8">
+
+    <!-- ===== Khối form (hiển thị mặc định) ===== -->
+    <div id="formWrap">
+      <div class="text-center mb-6">
+        <span class="badge bg-base-100 text-brand border-brand/30 font-medium mb-2 py-3 gap-1.5">
+          <i data-lucide="timer" class="w-3.5 h-3.5"></i> Bước cuối · ~2 phút
+        </span>
+        <h1 class="text-2xl font-bold">Tạo trang đặt bàn cho quán</h1>
+        <p class="text-sm text-base-content/60 mt-1">Điền thông tin cơ bản, nhận ngay link đặt bàn.</p>
+      </div>
+
+      <form id="form" class="card bg-base-100 shadow-sm border border-base-200">
+        <div class="card-body gap-4">
+          <div>
+            <label class="label"><span class="label-text font-medium inline-flex items-center gap-1.5"><i data-lucide="store" class="w-4 h-4 text-brand"></i> Tên quán *</span></label>
+            <input id="shopName" type="text" required value="Nhà hàng Trum Quán" class="input input-bordered w-full" />
+          </div>
+
+          <div>
+            <label class="label"><span class="label-text font-medium inline-flex items-center gap-1.5"><i data-lucide="tag" class="w-4 h-4 text-brand"></i> Loại hình</span></label>
+            <div class="dropdown w-full">
+              <div tabindex="0" role="button" class="btn btn-outline border-base-300 hover:border-brand hover:bg-brand-bg hover:text-base-content w-full justify-between font-normal">
+                <span id="typeLabel">Nhà hàng</span>
+                <i data-lucide="chevron-down" class="w-4 h-4 opacity-60"></i>
+              </div>
+              <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[20] w-full p-2 shadow-lg border border-base-200 mt-1">
+                <li><a data-val="Nhà hàng" class="active">Nhà hàng</a></li>
+                <li><a data-val="Quán cà phê">Quán cà phê</a></li>
+                <li><a data-val="Quán ăn / Bistro">Quán ăn / Bistro</a></li>
+                <li><a data-val="Lẩu / Nướng">Lẩu / Nướng</a></li>
+                <li><a data-val="Bar / Pub">Bar / Pub</a></li>
+                <li><a data-val="Khác">Khác</a></li>
+              </ul>
+            </div>
+            <input type="hidden" id="type" value="Nhà hàng">
+          </div>
+
+          <div>
+            <label class="label"><span class="label-text font-medium inline-flex items-center gap-1.5"><i data-lucide="map-pin" class="w-4 h-4 text-brand"></i> Địa chỉ *</span></label>
+            <input id="address" type="text" required value="77 Trần Nhân Tôn, Phường An Đông, TP.HCM" class="input input-bordered w-full" />
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="label"><span class="label-text font-medium inline-flex items-center gap-1.5"><i data-lucide="phone" class="w-4 h-4 text-brand"></i> Điện thoại *</span></label>
+              <input id="phone" type="tel" required value="1900 4766 Nhánh 3" class="input input-bordered w-full" />
+            </div>
+            <div>
+              <label class="label"><span class="label-text font-medium inline-flex items-center gap-1.5"><i data-lucide="armchair" class="w-4 h-4 text-brand"></i> Số bàn</span></label>
+              <input id="tables" type="number" min="1" value="20" class="input input-bordered w-full" />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg mt-2 gap-1">Tạo quán & lấy link <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+        </div>
+      </form>
+    </div>
+
+    <!-- ===== Khối kết quả (ẩn ban đầu) ===== -->
+    <div id="resultWrap" class="hidden">
+      <div class="text-center mb-6">
+        <div class="w-16 h-16 rounded-full bg-success/15 flex items-center justify-center text-success mx-auto mb-3">
+          <i data-lucide="check" class="w-8 h-8"></i>
+        </div>
+        <h1 class="text-2xl font-bold">Quán của bạn đã sẵn sàng!</h1>
+        <p class="text-sm text-base-content/60 mt-1" id="resultSub">Chia sẻ link bên dưới để khách bắt đầu đặt bàn.</p>
+      </div>
+
+      <div class="card bg-base-100 shadow-sm border border-base-200">
+        <div class="card-body gap-4">
+
+          <div>
+            <label class="label"><span class="label-text font-medium inline-flex items-center gap-1.5"><i data-lucide="link" class="w-4 h-4 text-brand"></i> Link đặt bàn của bạn</span></label>
+            <div class="join w-full">
+              <input id="bookingLink" readonly value="https://booking-lite.vn/r/trum-quan" class="input input-bordered join-item w-full text-brand font-medium" />
+              <button id="copyBtn" class="btn btn-primary join-item gap-1"><i data-lucide="copy" class="w-4 h-4"></i> Sao chép</button>
+            </div>
+            <p id="copyMsg" class="text-xs text-success mt-1 hidden inline-flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5"></i> Đã sao chép link!</p>
+          </div>
+
+          <div class="grid grid-cols-3 gap-4 items-center">
+            <div class="col-span-2 space-y-2">
+              <p class="text-sm font-medium">Hoặc dùng mã QR</p>
+              <p class="text-xs text-base-content/60">In QR đặt trên bàn để khách quét và tự đặt chỗ.</p>
+              <button class="btn btn-outline btn-sm gap-1"><i data-lucide="download" class="w-4 h-4"></i> Tải QR (demo)</button>
+            </div>
+            <!-- QR placeholder -->
+            <div class="aspect-square bg-base-200 rounded-lg flex items-center justify-center text-base-content/40">
+              <i data-lucide="qr-code" class="w-16 h-16"></i>
+            </div>
+          </div>
+
+          <div class="divider my-0"></div>
+
+          <a href="dashboard.html" class="btn btn-primary btn-block btn-lg gap-1">Xem danh sách booking <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+          <a href="index.html" class="btn btn-ghost btn-block btn-sm">Về trang chủ</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center text-xs text-base-content/40 mt-6">Tác giả: trung.duong (Trum)</p>
+
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+
+    // Dropdown "Loại hình" (tự dựng — branded, không dùng select native)
+    const typeLabel = document.getElementById('typeLabel');
+    const typeInput = document.getElementById('type');
+    document.querySelectorAll('.dropdown-content a[data-val]').forEach(a => {
+      a.addEventListener('click', () => {
+        typeLabel.textContent = a.dataset.val;
+        typeInput.value = a.dataset.val;
+        document.querySelectorAll('.dropdown-content a[data-val]').forEach(x => x.classList.remove('active'));
+        a.classList.add('active');
+        if (document.activeElement) document.activeElement.blur(); // đóng dropdown
+      });
+    });
+
+    document.getElementById('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('shopName').value.trim() || 'Quán của bạn';
+
+      // Tạo slug đơn giản từ tên quán cho link (bỏ dấu tiếng Việt)
+      const slug = name.toLowerCase()
+        .normalize('NFD').replace(/[̀-ͯ]/g, '')
+        .replace(/đ/g, 'd')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '') || 'quan';
+
+      document.getElementById('bookingLink').value = 'https://booking-lite.vn/r/' + slug;
+      document.getElementById('resultSub').textContent = '"' + name + '" đã có trang đặt bàn riêng. Chia sẻ link bên dưới!';
+
+      // Chuyển từ form → kết quả
+      document.getElementById('formWrap').classList.add('hidden');
+      document.getElementById('resultWrap').classList.remove('hidden');
+      lucide.createIcons();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Nút sao chép link
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const link = document.getElementById('bookingLink');
+      link.select();
+      try { navigator.clipboard.writeText(link.value); } catch (e) { document.execCommand('copy'); }
+      const msg = document.getElementById('copyMsg');
+      msg.classList.remove('hidden');
+      setTimeout(() => msg.classList.add('hidden'), 2000);
+    });
+  </script>
+
+</body>
+</html>

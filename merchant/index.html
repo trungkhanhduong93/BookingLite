@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="trung.duong (Trum)">
+  <title>Booking Lite cho chủ quán — Tạo link đặt bàn trong 2 phút</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2' } } }
+    }
+  </script>
+  <style>
+    [data-theme="light"] { --p: 19 89% 54%; --pf: 19 89% 46%; --pc: 0 0% 100%; }
+    html, body { font-family: 'Be Vietnam Pro', sans-serif; }
+  </style>
+</head>
+<body class="min-h-screen bg-base-100">
+
+  <!-- Navbar -->
+  <div class="navbar bg-base-100/80 backdrop-blur sticky top-0 z-50 border-b border-base-200">
+    <div class="max-w-5xl mx-auto w-full px-4 flex items-center">
+      <div class="flex-1">
+        <a href="../index.html" class="text-xl font-bold text-brand inline-flex items-center gap-2">
+          <i data-lucide="utensils-crossed" class="w-6 h-6"></i>
+          Booking<span class="text-base-content">Lite</span>
+        </a>
+      </div>
+      <div class="flex-none">
+        <label for="loginModal" class="btn btn-primary btn-sm">Đăng nhập</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="max-w-5xl mx-auto px-4 pt-14 pb-10 grid md:grid-cols-2 gap-8 items-center">
+    <div>
+      <span class="badge bg-brand-bg text-brand border-brand/30 font-medium mb-4 py-3">Dành cho chủ quán</span>
+      <h1 class="text-3xl sm:text-4xl font-bold leading-tight">
+        Tạo link đặt bàn riêng cho quán <span class="text-brand">chỉ trong 2 phút</span>
+      </h1>
+      <p class="mt-4 text-base-content/70">
+        Không cần website, không cần lập trình. Nhập thông tin quán → nhận ngay link đặt bàn để
+        chia sẻ lên Facebook, Zalo hay in QR đặt trên bàn.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <label for="loginModal" class="btn btn-primary btn-lg gap-1">Bắt đầu miễn phí <i data-lucide="arrow-right" class="w-4 h-4"></i></label>
+        <a href="dashboard.html" class="btn btn-ghost btn-lg">Xem dashboard mẫu</a>
+      </div>
+      <p class="mt-3 text-xs text-base-content/50 inline-flex items-center gap-1.5">
+        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Không cần thẻ tín dụng · Huỷ bất cứ lúc nào
+      </p>
+    </div>
+
+    <!-- Mock preview — khung điện thoại thật (Dynamic Island, status bar, home indicator) -->
+    <div class="mx-auto w-[280px]">
+      <div class="relative rounded-[3rem] bg-neutral p-2.5 shadow-2xl">
+        <!-- nút cạnh máy -->
+        <div class="absolute -left-1 top-24 w-1 h-9 bg-neutral rounded-l-md"></div>
+        <div class="absolute -left-1 top-36 w-1 h-14 bg-neutral rounded-l-md"></div>
+        <div class="absolute -right-1 top-32 w-1 h-20 bg-neutral rounded-r-md"></div>
+
+        <!-- màn hình (tỉ lệ 9:19.5 như điện thoại thật) -->
+        <div class="relative rounded-[2.4rem] overflow-hidden bg-base-100 aspect-[9/19.5] flex flex-col">
+          <!-- Dynamic Island -->
+          <div class="absolute top-2.5 left-1/2 -translate-x-1/2 w-[5.5rem] h-6 bg-neutral rounded-full z-20"></div>
+
+          <!-- status bar -->
+          <div class="flex items-center justify-between px-5 pt-3 pb-1 text-[11px] font-semibold text-base-content shrink-0">
+            <span>9:41</span>
+            <span class="flex items-center gap-1">
+              <i data-lucide="signal" class="w-3.5 h-3.5"></i>
+              <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+              <i data-lucide="battery-full" class="w-5 h-5"></i>
+            </span>
+          </div>
+
+          <!-- header app (giống màn chọn giờ) -->
+          <div class="flex items-center justify-between px-3 py-2 border-b border-base-200 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <i data-lucide="arrow-left" class="w-4 h-4 text-base-content/70"></i>
+              <span class="text-xs font-semibold">Đặt bàn · Trum Quán</span>
+            </div>
+            <i data-lucide="house" class="w-4 h-4 text-base-content/70"></i>
+          </div>
+
+          <!-- mini stepper (bước 1) -->
+          <div class="px-4 pt-3 pb-1 shrink-0">
+            <div class="relative flex justify-between">
+              <div class="absolute top-[9px] left-6 right-6 h-0.5 bg-base-200"></div>
+              <div class="relative z-10 flex flex-col items-center w-12">
+                <div class="w-[18px] h-[18px] rounded-full bg-brand text-white text-[9px] font-semibold flex items-center justify-center ring-2 ring-brand/25">1</div>
+                <span class="text-[8px] text-brand font-semibold mt-1">Chọn giờ</span>
+              </div>
+              <div class="relative z-10 flex flex-col items-center w-12">
+                <div class="w-[18px] h-[18px] rounded-full bg-base-100 border border-base-300 text-base-content/40 text-[9px] flex items-center justify-center">2</div>
+                <span class="text-[8px] text-base-content/40 mt-1">Thông tin</span>
+              </div>
+              <div class="relative z-10 flex flex-col items-center w-12">
+                <div class="w-[18px] h-[18px] rounded-full bg-base-100 border border-base-300 text-base-content/40 text-[9px] flex items-center justify-center">3</div>
+                <span class="text-[8px] text-base-content/40 mt-1">Xác nhận</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- nội dung app: chọn ngày + chọn giờ -->
+          <div class="px-3.5 pt-2 flex-1 overflow-hidden">
+            <p class="text-[10px] font-medium text-base-content/60 mb-1.5 flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3 text-brand"></i> Chọn ngày</p>
+            <div class="flex gap-1.5">
+              <div class="flex flex-col items-center justify-center w-11 h-14 rounded-xl bg-brand text-white text-[9px] shadow-md shadow-brand/30 shrink-0">
+                <span>Hôm nay</span><span class="text-base font-bold leading-tight">30</span>
+              </div>
+              <div class="flex flex-col items-center justify-center w-11 h-14 rounded-xl border border-base-300 text-[9px] text-base-content/50 shrink-0">
+                <span>T4</span><span class="text-base font-bold leading-tight text-base-content">1</span>
+              </div>
+              <div class="flex flex-col items-center justify-center w-11 h-14 rounded-xl border border-base-300 text-[9px] text-base-content/50 shrink-0">
+                <span>T5</span><span class="text-base font-bold leading-tight text-base-content">2</span>
+              </div>
+              <div class="flex flex-col items-center justify-center w-11 h-14 rounded-xl border border-base-300 text-[9px] text-base-content/50 shrink-0">
+                <span>T6</span><span class="text-base font-bold leading-tight text-base-content">3</span>
+              </div>
+            </div>
+
+            <p class="text-[10px] font-medium text-base-content/60 mt-4 mb-1.5 flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3 text-brand"></i> Chọn khung giờ</p>
+            <div class="grid grid-cols-3 gap-1.5">
+              <div class="text-[10px] text-center py-1.5 rounded-lg border border-base-300 text-base-content/60">17:30</div>
+              <div class="text-[10px] text-center py-1.5 rounded-lg bg-brand text-white border border-brand">18:00</div>
+              <div class="text-[10px] text-center py-1.5 rounded-lg border border-base-300 text-base-content/60">18:30</div>
+              <div class="text-[10px] text-center py-1.5 rounded-lg border border-base-300 text-base-content/60">19:00</div>
+              <div class="text-[10px] text-center py-1.5 rounded-lg border border-base-300 text-base-content/60">19:30</div>
+              <div class="text-[10px] text-center py-1.5 rounded-lg border border-base-300 text-base-content/60">20:00</div>
+            </div>
+          </div>
+
+          <!-- nút cố định dưới -->
+          <div class="px-3.5 pb-1 shrink-0">
+            <button class="btn btn-primary btn-sm btn-block text-xs">Tiếp tục</button>
+          </div>
+
+          <!-- home indicator -->
+          <div class="flex justify-center pt-2.5 pb-2 shrink-0">
+            <div class="w-24 h-1 rounded-full bg-base-content/30"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="max-w-5xl mx-auto px-4 py-12 grid gap-6 sm:grid-cols-3">
+    <div class="card bg-base-100 border border-base-200">
+      <div class="card-body">
+        <div class="w-12 h-12 rounded-xl bg-brand-bg text-brand flex items-center justify-center">
+          <i data-lucide="zap" class="w-6 h-6"></i>
+        </div>
+        <h3 class="card-title text-lg">Onboarding siêu nhanh</h3>
+        <p class="text-sm text-base-content/60">Một biểu mẫu duy nhất. Nhập xong là có link đặt bàn ngay.</p>
+      </div>
+    </div>
+    <div class="card bg-base-100 border border-base-200">
+      <div class="card-body">
+        <div class="w-12 h-12 rounded-xl bg-brand-bg text-brand flex items-center justify-center">
+          <i data-lucide="link" class="w-6 h-6"></i>
+        </div>
+        <h3 class="card-title text-lg">Link & QR sẵn sàng</h3>
+        <p class="text-sm text-base-content/60">Chia sẻ link, hoặc tải QR in lên bàn để khách tự đặt.</p>
+      </div>
+    </div>
+    <div class="card bg-base-100 border border-base-200">
+      <div class="card-body">
+        <div class="w-12 h-12 rounded-xl bg-brand-bg text-brand flex items-center justify-center">
+          <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+        </div>
+        <h3 class="card-title text-lg">Quản lý tập trung</h3>
+        <p class="text-sm text-base-content/60">Mọi đơn đặt bàn gọn trong một dashboard dễ nhìn.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA cuối -->
+  <section class="bg-brand-bg">
+    <div class="max-w-3xl mx-auto px-4 py-14 text-center">
+      <h2 class="text-2xl font-bold">Sẵn sàng nhận đơn đặt bàn online?</h2>
+      <p class="mt-2 text-base-content/70">Tạo trang đặt bàn cho quán của bạn ngay hôm nay.</p>
+      <label for="loginModal" class="btn btn-primary btn-lg mt-6 gap-1">Tạo quán miễn phí <i data-lucide="arrow-right" class="w-4 h-4"></i></label>
+    </div>
+  </section>
+
+  <footer class="footer footer-center p-6 bg-base-100 border-t border-base-200 text-base-content/50 text-sm">
+    <aside class="space-y-1">
+      <p>© 2026 Booking Lite — Prototype lấy cảm hứng từ iPOS.vn</p>
+      <p class="inline-flex items-center gap-1.5">
+        <i data-lucide="code-2" class="w-4 h-4"></i> Tác giả: <span class="font-medium text-base-content/70">trung.duong (Trum)</span>
+      </p>
+    </aside>
+  </footer>
+
+  <!-- Modal đăng nhập (mock) -->
+  <input type="checkbox" id="loginModal" class="modal-toggle" />
+  <div class="modal" role="dialog">
+    <div class="modal-box">
+      <h3 class="text-lg font-bold">Đăng nhập / Đăng ký</h3>
+      <p class="text-sm text-base-content/60 mt-1">Demo — bấm tiếp tục để vào onboarding.</p>
+      <form id="loginForm" class="space-y-3 mt-4">
+        <label class="input input-bordered flex items-center gap-2">
+          <i data-lucide="mail" class="w-4 h-4 text-base-content/50"></i>
+          <input type="email" placeholder="Email" value="chuquan@phoco.vn" class="grow" />
+        </label>
+        <label class="input input-bordered flex items-center gap-2">
+          <i data-lucide="lock" class="w-4 h-4 text-base-content/50"></i>
+          <input type="password" placeholder="Mật khẩu" value="demo1234" class="grow" />
+        </label>
+        <button type="submit" class="btn btn-primary btn-block gap-1">Tiếp tục <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+      </form>
+      <div class="divider text-xs">hoặc</div>
+      <button onclick="location.href='onboarding.html'" class="btn btn-outline btn-block gap-2">
+        <i data-lucide="chrome" class="w-4 h-4"></i> Đăng nhập với Google (demo)
+      </button>
+      <div class="modal-action">
+        <label for="loginModal" class="btn btn-ghost btn-sm">Đóng</label>
+      </div>
+    </div>
+    <label class="modal-backdrop" for="loginModal">Đóng</label>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      location.href = 'onboarding.html';
+    });
+  </script>
+
+</body>
+</html>

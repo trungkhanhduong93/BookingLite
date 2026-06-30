@@ -1,0 +1,14 @@
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Netlify
+.netlify/
+
+# Claude local
+.claude/settings.local.json
