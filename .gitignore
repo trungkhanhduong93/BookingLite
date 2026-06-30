@@ -10,8 +10,9 @@ Desktop.ini
 # Netlify
 .netlify/
 
-# Bản đóng gói
+# Bản đóng gói & thư mục giải nén trùng lặp
 *.zip
+BookingLite-prototype-trung.duong(Trum)/
 
 # Claude local
 .claude/settings.local.json
