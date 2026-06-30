@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F26522"/>
+      <stop offset="1" stop-color="#D9531A"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#g)"/>
+  <!-- hơi nước bốc lên -->
+  <g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.95">
+    <path d="M23 13 c-3 3 -3 5 0 8"/>
+    <path d="M32 11 c-3 3 -3 5 0 8"/>
+    <path d="M41 13 c-3 3 -3 5 0 8"/>
+  </g>
+  <!-- miệng tô -->
+  <rect x="9" y="28" width="46" height="6" rx="3" fill="#fff"/>
+  <!-- thân tô -->
+  <path d="M13 33 C13 44 21.5 51 32 51 C42.5 51 51 44 51 33 Z" fill="#fff"/>
+</svg>
