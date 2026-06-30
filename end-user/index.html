@@ -8,15 +8,7 @@
   <meta name="theme-color" content="#F26522">
   <title>Nhà hàng Trum Quán — Đặt bàn online</title>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2', ipos: '#0067B1', 'ipos-dark': '#00528C', 'ipos-bg': '#E7F1FA' } } }
-    }
-  </script>
+  <link rel="stylesheet" href="../style.css" />
   <style>
     [data-theme="light"] { --p: 19 89% 54%; --pf: 19 89% 46%; --pc: 0 0% 100%; }
     html, body { font-family: 'Be Vietnam Pro', sans-serif; }
@@ -68,8 +60,8 @@
       </p>
 
       <div class="grid grid-cols-2 gap-2 mt-4">
-        <a href="thuc-don.html" class="btn btn-sm gap-1 bg-transparent border-ipos text-ipos hover:bg-ipos hover:text-white hover:border-ipos"><i data-lucide="book-open" class="w-4 h-4"></i> Thực đơn</a>
-        <a href="tra-cuu.html" class="btn btn-outline btn-primary btn-sm gap-1"><i data-lucide="search-check" class="w-4 h-4"></i> Tra cứu đơn</a>
+        <a href="thuc-don.html" class="btn gap-1 bg-ipos text-white border-none hover:bg-ipos-dark shadow-md shadow-ipos/30"><i data-lucide="book-open" class="w-5 h-5"></i> Thực đơn</a>
+        <a href="tra-cuu.html" class="btn gap-1 btn-primary shadow-md shadow-brand/30"><i data-lucide="search-check" class="w-5 h-5"></i> Tra cứu đơn</a>
       </div>
     </div>
 
