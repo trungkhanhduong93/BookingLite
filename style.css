@@ -34,3 +34,16 @@ body {
 @media (max-width: 639px) {
   .badge-lg { height: auto !important; padding: 0.5rem 1rem !important; line-height: 1.4 !important; text-align: center; white-space: normal !important; }
 }
+
+/* Fix notification dropdown centering on mobile */
+@media (max-width: 639px) {
+  .navbar .dropdown-end .dropdown-content {
+    position: fixed !important;
+    top: 64px !important;
+    left: 16px !important;
+    right: 16px !important;
+    width: auto !important;
+    max-width: none !important;
+    transform: none !important;
+  }
+}
