@@ -16,7 +16,7 @@
     body { background-image: radial-gradient(34rem 22rem at 100% -6%, rgba(242,101,34,.10), transparent 60%), radial-gradient(34rem 22rem at 0% -6%, rgba(0,103,177,.10), transparent 60%), radial-gradient(rgba(15,23,42,.05) 1px, transparent 1px); background-size: 100% 100%, 100% 100%, 22px 22px; background-attachment: fixed; }
     .navlink.active { background: hsl(var(--p)); color: #fff; view-transition-name: active-menu; }
     ::view-transition-group(active-menu) { animation-duration: 0.4s; animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); } .navlink.active i { color: #fff; }
-    .toggle:checked { --tglbg: hsl(var(--p)); background-color: hsl(var(--p)); border-color: hsl(var(--p)); }
+    
   
 
   
@@ -59,7 +59,17 @@
           <h2 class="font-bold flex items-center gap-2"><i data-lucide="store" class="w-5 h-5 text-brand"></i> Thông tin quán</h2>
           <div class="grid sm:grid-cols-2 gap-4">
             <div><label class="label py-1"><span class="label-text">Tên quán</span></label><input value="Nhà hàng Trum Quán" class="input input-bordered w-full"></div>
-            <div><label class="label py-1"><span class="label-text">Loại hình</span></label><input value="Nhà hàng · Fine dining" class="input input-bordered w-full"></div>
+            <div><label class="label py-1"><span class="label-text">Loại hình</span></label><div class="dropdown w-full">
+  <div tabindex="0" role="button" class="btn btn-outline border-base-300 w-full justify-between font-normal bg-base-100 hover:bg-base-200">
+    Nhà hàng · Fine dining <i data-lucide="chevron-down" class="w-4 h-4 text-base-content/50"></i>
+  </div>
+  <div tabindex="0" class="dropdown-content z-[2] flex flex-col p-2 shadow-xl bg-[rgba(255,255,255,0.95)] backdrop-blur-md rounded-box w-full mt-1 border border-base-200 gap-1">
+    <a class="px-4 py-2 hover:bg-base-200 active:bg-base-300 rounded-lg cursor-pointer font-medium text-brand bg-brand/5 transition-colors">Nhà hàng · Fine dining</a>
+    <a class="px-4 py-2 hover:bg-base-200 active:bg-base-300 rounded-lg cursor-pointer transition-colors">Quán Cafe · Trà sữa</a>
+    <a class="px-4 py-2 hover:bg-base-200 active:bg-base-300 rounded-lg cursor-pointer transition-colors">Quán Nhậu · Beer Club</a>
+    <a class="px-4 py-2 hover:bg-base-200 active:bg-base-300 rounded-lg cursor-pointer transition-colors">Buffet · Lẩu Nướng</a>
+  </div>
+</div></div>
             <div class="sm:col-span-2"><label class="label py-1"><span class="label-text">Địa chỉ</span></label><input value="77 Trần Nhân Tôn, Phường An Đông, TP.HCM" class="input input-bordered w-full"></div>
             <div><label class="label py-1"><span class="label-text">Hotline</span></label><input value="1900 4766 Nhánh 3" class="input input-bordered w-full"></div>
             <div><label class="label py-1"><span class="label-text">Sức chứa (số bàn)</span></label><input type="number" value="20" class="input input-bordered w-full"></div>
@@ -76,9 +86,36 @@
         <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body gap-4">
           <h2 class="font-bold flex items-center gap-2"><i data-lucide="calendar-cog" class="w-5 h-5 text-brand"></i> Cấu hình nhận đặt bàn</h2>
           <div class="grid sm:grid-cols-3 gap-4">
-            <div><label class="label py-1"><span class="label-text">Mỗi khung giờ</span></label><select class="select select-bordered w-full"><option>15 phút</option><option selected>30 phút</option><option>60 phút</option></select></div>
-            <div><label class="label py-1"><span class="label-text">Giữ bàn tối đa</span></label><select class="select select-bordered w-full"><option>60 phút</option><option selected>90 phút</option><option>120 phút</option></select></div>
-            <div><label class="label py-1"><span class="label-text">Tự huỷ nếu trễ</span></label><select class="select select-bordered w-full"><option>10 phút</option><option selected>15 phút</option><option>Không</option></select></div>
+            <div><label class="label py-1"><span class="label-text">Mỗi khung giờ</span></label><div class="dropdown w-full">
+  <div tabindex="0" role="button" class="btn btn-outline border-base-300 w-full justify-between font-normal bg-base-100 hover:bg-base-200">
+    30 phút <i data-lucide="chevron-down" class="w-4 h-4 text-base-content/50"></i>
+  </div>
+  <div tabindex="0" class="dropdown-content z-[2] flex flex-col p-2 shadow-xl bg-[rgba(255,255,255,0.95)] backdrop-blur-md rounded-box w-full mt-1 border border-base-200 gap-1">
+    <a class="px-4 py-2 hover:bg-base-200 active:bg-base-300 rounded-lg cursor-pointer transition-colors">15 phút</a>
+    <a class="px-4 py-2 hover:bg-base-200 active:bg-base-300 rounded-lg cursor-pointer font-medium text-brand bg-brand/5 transition-colors">30 phút</a>
+    <a class="px-4 py-2 hover:bg-base-200 active:bg-base-300 rounded-lg cursor-pointer transition-colors">60 phút</a>
+  </div>
+</div></div>
+            <div><label class="label py-1"><span class="label-text">Giữ bàn tối đa</span></label><div class="dropdown w-full">
+  <div tabindex="0" role="button" class="btn btn-outline border-base-300 w-full justify-between font-normal bg-base-100 hover:bg-base-200">
+    90 phút <i data-lucide="chevron-down" class="w-4 h-4 text-base-content/50"></i>
+  </div>
+  <div tabindex="0" class="dropdown-content z-[2] flex flex-col p-2 shadow-xl bg-[rgba(255,255,255,0.95)] backdrop-blur-md rounded-box w-full mt-1 border border-base-200 gap-1">
+    <a class="px-4 py-2 hover:bg-base-200 active:bg-base-300 rounded-lg cursor-pointer transition-colors">60 phút</a>
+    <a class="px-4 py-2 hover:bg-base-200 active:bg-base-300 rounded-lg cursor-pointer font-medium text-brand bg-brand/5 transition-colors">90 phút</a>
+    <a class="px-4 py-2 hover:bg-base-200 active:bg-base-300 rounded-lg cursor-pointer transition-colors">120 phút</a>
+  </div>
+</div></div>
+            <div><label class="label py-1"><span class="label-text">Tự huỷ nếu trễ</span></label><div class="dropdown w-full">
+  <div tabindex="0" role="button" class="btn btn-outline border-base-300 w-full justify-between font-normal bg-base-100 hover:bg-base-200">
+    15 phút <i data-lucide="chevron-down" class="w-4 h-4 text-base-content/50"></i>
+  </div>
+  <div tabindex="0" class="dropdown-content z-[2] flex flex-col p-2 shadow-xl bg-[rgba(255,255,255,0.95)] backdrop-blur-md rounded-box w-full mt-1 border border-base-200 gap-1">
+    <a class="px-4 py-2 hover:bg-base-200 active:bg-base-300 rounded-lg cursor-pointer transition-colors">10 phút</a>
+    <a class="px-4 py-2 hover:bg-base-200 active:bg-base-300 rounded-lg cursor-pointer font-medium text-brand bg-brand/5 transition-colors">15 phút</a>
+    <a class="px-4 py-2 hover:bg-base-200 active:bg-base-300 rounded-lg cursor-pointer transition-colors">Không</a>
+  </div>
+</div></div>
           </div>
           <label class="flex items-center justify-between"><span class="text-sm">Tự động xác nhận đơn mới</span><input type="checkbox" class="toggle toggle-primary"></label>
           <label class="flex items-center justify-between"><span class="text-sm">Yêu cầu đặt cọc với nhóm trên 8 khách</span><input type="checkbox" class="toggle toggle-primary" checked></label>
