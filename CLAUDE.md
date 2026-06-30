@@ -57,3 +57,15 @@ Tài liệu này tổng hợp toàn bộ kiến trúc, tiến độ công việc
   2. Bổ sung các trang chưa có (Thực đơn / Tra cứu đơn).
   3. Áp dụng phong cách **Premium UI/UX** vào các form popup, modal đặt bàn mới, hoặc tối ưu giao diện điện thoại (Responsive) nếu phát sinh thêm khối mới.
   4. Nếu cần Mock Data phức tạp hơn, cứ tiếp tục nhét logic vào hàm `applyDemoBranchData()` trong `merchant/spa.js`. Chú ý dùng `window.location.pathname` để check đúng trang.
+
+---
+
+## 5. Chuẩn giao diện & QA Mobile (đã rà toàn bộ)
+- **Font**: `Inter` (400–800) đồng bộ mọi trang; hỗ trợ tiếng Việt tốt.
+- **Icon**: Lucide pin bản `0.360.0` (jsDelivr) ở tất cả trang — ổn định, không tự cập nhật.
+- **Viewport**: `width=device-width, initial-scale=1.0` mọi trang — **cho phép pinch-zoom** (đã bỏ `user-scalable=no` ở trang quán & chọn chi nhánh để đạt accessibility).
+- **End-user**: khung "điện thoại" (`h-[100dvh] sm:h-[800px]`), header/CTA cố định, nội dung cuộn riêng. Mobile = full màn; desktop = thẻ bo góc căn giữa.
+- **Merchant app**: DaisyUI `drawer lg:drawer-open` — sidebar cố định ở `lg`, thu thành drawer ở mobile; mọi trang có nút mở menu `<label for="nav" class="lg:hidden">`. Bảng dữ liệu bọc `overflow-x-auto`.
+- **Brand**: cam `#F26522` + xanh iPOS `#0067B1`; nền aurora (trang khách) / lưới chấm (app).
+- **Đã kiểm**: không có phần tử fixed-width gây tràn ngang; tab/bộ lọc dài cho cuộn ngang.
+- **Lưu ý hiệu năng (prototype)**: Tailwind chạy qua `cdn.tailwindcss.com` (JIT runtime) + `style.css` + DaisyUI full + Inter + Lucide ⇒ chấp nhận được cho demo, nhưng có FOUC nhẹ lúc load. Khi lên production nên build Tailwind tĩnh (CLI/PostCSS) để bỏ runtime compile.
