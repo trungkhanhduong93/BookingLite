@@ -23,7 +23,11 @@
     body { background-image: radial-gradient(42rem 42rem at 108% -8%, rgba(242,101,34,.20), transparent 60%), radial-gradient(40rem 40rem at -12% 112%, rgba(0,103,177,.18), transparent 62%); background-attachment: fixed; }
     @keyframes pop { 0% { transform: scale(0); } 70% { transform: scale(1.15); } 100% { transform: scale(1); } }
     .pop { animation: pop .5s ease-out; }
+  
+    @keyframes springFadeIn { from { opacity: 0; transform: translateY(12px) scale(0.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    .drawer, main { animation: springFadeIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
   </style>
+<meta name="view-transition" content="same-origin" />
 </head>
 <body class="min-h-screen bg-brand-bg sm:flex sm:items-center sm:justify-center sm:py-6">
 
