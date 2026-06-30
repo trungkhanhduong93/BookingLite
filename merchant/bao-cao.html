@@ -13,12 +13,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2', ipos: '#00A88E', 'ipos-dark': '#00806C', 'ipos-bg': '#E8F7F3' } } } }
+    tailwind.config = { theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2', ipos: '#0067B1', 'ipos-dark': '#00528C', 'ipos-bg': '#E7F1FA' } } } }
   </script>
   <style>
     [data-theme="light"] { --p: 19 89% 54%; --pf: 19 89% 46%; --pc: 0 0% 100%; }
     html, body { font-family: 'Be Vietnam Pro', sans-serif; }
-    body { background-image: radial-gradient(34rem 22rem at 100% -6%, rgba(242,101,34,.10), transparent 60%), radial-gradient(34rem 22rem at 0% -6%, rgba(0,168,142,.10), transparent 60%), radial-gradient(rgba(15,23,42,.05) 1px, transparent 1px); background-size: 100% 100%, 100% 100%, 22px 22px; background-attachment: fixed; }
+    body { background-image: radial-gradient(34rem 22rem at 100% -6%, rgba(242,101,34,.10), transparent 60%), radial-gradient(34rem 22rem at 0% -6%, rgba(0,103,177,.10), transparent 60%), radial-gradient(rgba(15,23,42,.05) 1px, transparent 1px); background-size: 100% 100%, 100% 100%, 22px 22px; background-attachment: fixed; }
     .navlink.active { background: hsl(var(--p)); color: #fff; } .navlink.active i { color: #fff; }
     .bar { transition: height .4s ease; }
   </style>
@@ -33,7 +33,7 @@
         <div class="flex-1"><h1 class="text-lg font-bold">Báo cáo & phân tích</h1></div>
         <div class="flex-none gap-1.5">
           <select class="select select-bordered select-sm hidden sm:block"><option>7 ngày qua</option><option>30 ngày qua</option><option>Tháng này</option></select>
-          <button class="btn btn-ghost btn-sm gap-1"><i data-lucide="download" class="w-4 h-4"></i> <span class="hidden sm:inline">Xuất</span></button>
+          <button class="btn btn-outline btn-sm gap-1"><i data-lucide="download" class="w-4 h-4"></i> <span class="hidden sm:inline">Xuất</span></button>
           <div class="avatar placeholder"><div class="bg-brand text-white rounded-full w-9"><span class="text-sm">TQ</span></div></div>
         </div>
       </header>
@@ -57,12 +57,12 @@
 
         <div class="grid lg:grid-cols-3 gap-4">
           <!-- Bar chart -->
-          <div class="card bg-base-100 shadow-sm border border-base-200 lg:col-span-2"><div class="card-body">
+          <div class="card bg-base-100 shadow-sm border border-base-200 lg:col-span-2"><div class="card-body p-4 sm:p-6">
             <h2 class="font-bold">Lượt đặt 7 ngày qua</h2>
             <div class="flex items-end justify-between gap-2 sm:gap-4 h-44 pt-4" id="bars"></div>
           </div></div>
           <!-- Donut trạng thái -->
-          <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body items-center">
+          <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body items-center p-4 sm:p-6">
             <h2 class="font-bold self-start">Trạng thái đơn</h2>
             <div class="radial-progress text-ipos my-2" style="--value:72; --size:9rem; --thickness:1.1rem;" role="progressbar">
               <div class="text-center"><div class="text-2xl font-bold text-base-content">72%</div><div class="text-[11px] text-base-content/50">hoàn tất</div></div>
@@ -78,12 +78,12 @@
 
         <div class="grid lg:grid-cols-2 gap-4">
           <!-- Khung giờ cao điểm -->
-          <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body">
+          <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body p-4 sm:p-6">
             <h2 class="font-bold mb-1">Khung giờ cao điểm</h2>
             <div class="space-y-2.5" id="peaks"></div>
           </div></div>
           <!-- Top khách -->
-          <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body">
+          <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body p-4 sm:p-6">
             <h2 class="font-bold mb-1">Khách hàng thân thiết</h2>
             <div class="space-y-2" id="top"></div>
           </div></div>
@@ -140,9 +140,9 @@
       </div>`).join('');
 
     // Top khách
-    const top = [['Trần Thu Hà',14],['Hoàng Nam',9],['Lê Hoàng Anh',6],['Vũ Đức Thắng',5]];
-    const cl = ['bg-brand','bg-info','bg-success','bg-warning'];
-    document.getElementById('top').innerHTML = top.map((t,i) => `
+    const topCustomers = [['Trần Thu Hà',14],['Hoàng Nam',9],['Lê Hoàng Anh',6],['Vũ Đức Thắng',5],['Phạm Ngọc',4]];
+    const cl = ['bg-brand','bg-info','bg-success','bg-warning','bg-error'];
+    document.getElementById('top').innerHTML = topCustomers.map((t,i) => `
       <div class="flex items-center gap-3">
         <div class="avatar placeholder"><div class="${cl[i]} text-white rounded-full w-8"><span class="text-xs">${t[0].split(' ').slice(-1)[0][0]}</span></div></div>
         <span class="flex-1 text-sm font-medium">${t[0]}</span>

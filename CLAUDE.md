@@ -57,7 +57,7 @@ Tiêu chí cốt lõi: **Onboarding siêu nhanh**. Đây là **prototype tĩnh**
   tailwind.config = {
     theme: { extend: { colors: {
       brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2',
-      ipos: '#00A88E', 'ipos-dark': '#00806C', 'ipos-bg': '#E8F7F3'
+      ipos: '#0067B1', 'ipos-dark': '#00528C', 'ipos-bg': '#E7F1FA'
     } } }
   }
 </script>
@@ -74,8 +74,8 @@ Tiêu chí cốt lõi: **Onboarding siêu nhanh**. Đây là **prototype tĩnh**
 - Dùng class DaisyUI `btn-primary`, `text-primary`, `bg-primary`… (đã ra màu cam) hoặc
   `text-brand` / `bg-brand` / `bg-brand-bg` cho trường hợp cần.
 
-### 2b. Màu phụ chủ đạo — XANH iPOS `#00A88E`
-- Cam (`brand`) và xanh teal (`ipos`) là **hai màu chủ đạo song hành** của iPOS.vn.
+### 2b. Màu phụ chủ đạo — XANH iPOS `#0067B1`
+- Cam (`brand`) và xanh dương (`ipos`) là **hai màu chủ đạo song hành** của iPOS.vn (theo logo).
 - Dùng `text-ipos` / `bg-ipos` / `bg-ipos-bg` / `border-ipos` / `from-ipos` `to-ipos`.
 - Quy ước: **cam = hành động chính & luồng khách**; **xanh = nhấn/secondary, dữ liệu (chart),
   thành công, khu vực chủ quán**. Gradient brand: `from-brand to-ipos`.
