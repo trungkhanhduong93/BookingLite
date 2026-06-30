@@ -261,10 +261,9 @@
     if(checkInBtn) {
       checkInBtn.addEventListener('click', () => {
         checkInBtn.classList.remove('btn-primary');
-        checkInBtn.classList.add('btn-success', 'text-white');
+        checkInBtn.classList.add('btn-success', 'text-white', 'pointer-events-none');
         checkInBtn.innerHTML = '<i data-lucide="check-circle-2" class="w-4 h-4"></i> Đã Check-in';
         lucide.createIcons();
-        checkInBtn.disabled = true;
 
         STEPS[2].done = true;
         
