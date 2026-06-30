@@ -56,7 +56,8 @@ Tiêu chí cốt lõi: **Onboarding siêu nhanh**. Đây là **prototype tĩnh**
 <script>
   tailwind.config = {
     theme: { extend: { colors: {
-      brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2'
+      brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2',
+      ipos: '#00A88E', 'ipos-dark': '#00806C', 'ipos-bg': '#E8F7F3'
     } } }
   }
 </script>
@@ -72,6 +73,18 @@ Tiêu chí cốt lõi: **Onboarding siêu nhanh**. Đây là **prototype tĩnh**
 - Bảng màu: primary `#F26522`, đậm `#D9531A`, nền nhạt `#FFF7F2`, chữ đậm `#1F2937`.
 - Dùng class DaisyUI `btn-primary`, `text-primary`, `bg-primary`… (đã ra màu cam) hoặc
   `text-brand` / `bg-brand` / `bg-brand-bg` cho trường hợp cần.
+
+### 2b. Màu phụ chủ đạo — XANH iPOS `#00A88E`
+- Cam (`brand`) và xanh teal (`ipos`) là **hai màu chủ đạo song hành** của iPOS.vn.
+- Dùng `text-ipos` / `bg-ipos` / `bg-ipos-bg` / `border-ipos` / `from-ipos` `to-ipos`.
+- Quy ước: **cam = hành động chính & luồng khách**; **xanh = nhấn/secondary, dữ liệu (chart),
+  thành công, khu vực chủ quán**. Gradient brand: `from-brand to-ipos`.
+
+### 2c. Nền (background) — chống đơn điệu
+- **Aurora** (trang khách + marketing): 2 quầng radial cam (góc trên-phải) + xanh (góc dưới-trái)
+  trên `body`, `background-attachment: fixed`.
+- **Lưới chấm** (app quản trị `/merchant` trừ index/onboarding): dot-grid 22px + 2 glow cam/xanh nhạt.
+- Đặt trong `<style>` nhắm thẳng selector `body` (không cần đổi class trên thẻ `<body>`).
 
 ### 3. Font
 Be Vietnam Pro (400/500/600/700) — hỗ trợ tiếng Việt tốt, áp dụng toàn trang.

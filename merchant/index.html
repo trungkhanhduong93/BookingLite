@@ -14,12 +14,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
-      theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2' } } }
+      theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2', ipos: '#00A88E', 'ipos-dark': '#00806C', 'ipos-bg': '#E8F7F3' } } }
     }
   </script>
   <style>
     [data-theme="light"] { --p: 19 89% 54%; --pf: 19 89% 46%; --pc: 0 0% 100%; }
     html, body { font-family: 'Be Vietnam Pro', sans-serif; }
+    body { background-image: radial-gradient(42rem 42rem at 108% -8%, rgba(242,101,34,.18), transparent 60%), radial-gradient(40rem 40rem at -12% 120%, rgba(0,168,142,.16), transparent 62%); background-attachment: fixed; }
   </style>
 </head>
 <body class="min-h-screen bg-base-100">
@@ -166,7 +167,7 @@
     </div>
     <div class="card bg-base-100 border border-base-200">
       <div class="card-body">
-        <div class="w-12 h-12 rounded-xl bg-brand-bg text-brand flex items-center justify-center">
+        <div class="w-12 h-12 rounded-xl bg-ipos-bg text-ipos flex items-center justify-center">
           <i data-lucide="link" class="w-6 h-6"></i>
         </div>
         <h3 class="card-title text-lg">Link & QR sẵn sàng</h3>

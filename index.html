@@ -14,12 +14,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
-      theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2' } } }
+      theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2', ipos: '#00A88E', 'ipos-dark': '#00806C', 'ipos-bg': '#E8F7F3' } } }
     }
   </script>
   <style>
     [data-theme="light"] { --p: 19 89% 54%; --pf: 19 89% 46%; --pc: 0 0% 100%; }
     html, body { font-family: 'Be Vietnam Pro', sans-serif; }
+    body { background-image: radial-gradient(42rem 42rem at 108% -8%, rgba(242,101,34,.20), transparent 60%), radial-gradient(40rem 40rem at -12% 112%, rgba(0,168,142,.18), transparent 62%); background-attachment: fixed; }
   </style>
 </head>
 <body class="min-h-screen bg-brand-bg">
@@ -72,16 +73,66 @@
     <!-- Chủ quán -->
     <a href="merchant/index.html" class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow border border-base-200">
       <div class="card-body items-center text-center">
-        <div class="w-14 h-14 rounded-2xl bg-brand-bg text-brand flex items-center justify-center mb-1">
+        <div class="w-14 h-14 rounded-2xl bg-ipos-bg text-ipos flex items-center justify-center mb-1">
           <i data-lucide="chef-hat" class="w-7 h-7"></i>
         </div>
         <h2 class="card-title">Tôi là chủ quán</h2>
         <p class="text-sm text-base-content/60">Tạo link đặt bàn cho quán và quản lý booking dễ dàng.</p>
         <div class="card-actions mt-3 w-full">
-          <button class="btn btn-outline btn-primary w-full gap-1">Bắt đầu miễn phí <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+          <button class="btn w-full gap-1 bg-transparent border-ipos text-ipos hover:bg-ipos hover:text-white hover:border-ipos">Bắt đầu miễn phí <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
         </div>
       </div>
     </a>
+  </section>
+
+  <!-- Demo Spotlight: khu vực chủ quán -->
+  <section class="max-w-5xl mx-auto px-4 pb-16">
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2937] to-[#0f172a] text-white p-6 sm:p-10 shadow-xl">
+      <div class="absolute -top-16 -right-10 w-56 h-56 rounded-full bg-brand/30 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-16 -left-10 w-56 h-56 rounded-full bg-ipos/30 blur-3xl pointer-events-none"></div>
+      <div class="relative grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <span class="badge bg-error text-white border-0 gap-1.5 mb-3 py-3"><span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> LIVE DEMO</span>
+          <h2 class="text-2xl sm:text-3xl font-bold leading-snug">Thử ngay bảng điều khiển
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-ipos">dành cho chủ quán</span></h2>
+          <p class="mt-3 text-white/70">Dashboard, lịch đặt bàn, sơ đồ bàn, CRM khách hàng, báo cáo… đầy đủ dữ liệu mẫu. Không cần đăng ký — vào là dùng.</p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a href="merchant/dashboard.html" class="btn btn-primary btn-lg gap-1 shadow-lg shadow-brand/30">Mở demo quản trị <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+            <a href="merchant/index.html" class="btn btn-lg btn-ghost text-white hover:bg-white/10">Tìm hiểu thêm</a>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-sm text-white/60">
+            <span class="inline-flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-ipos"></i> 6 module quản trị</span>
+            <span class="inline-flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-ipos"></i> Dữ liệu mẫu sẵn</span>
+            <span class="inline-flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-ipos"></i> Onboarding 2 phút</span>
+          </div>
+        </div>
+        <!-- Preview mini dashboard -->
+        <div class="hidden md:grid grid-cols-2 gap-3">
+          <div class="rounded-xl bg-white/10 backdrop-blur p-3 border border-white/10">
+            <div class="flex items-center justify-between text-white/50 text-xs">Booking hôm nay <i data-lucide="calendar-check" class="w-4 h-4 text-brand"></i></div>
+            <div class="text-2xl font-bold mt-1">8</div>
+            <div class="text-[11px] text-ipos inline-flex items-center gap-1"><i data-lucide="trending-up" class="w-3 h-3"></i> +3 hôm nay</div>
+          </div>
+          <div class="rounded-xl bg-white/10 backdrop-blur p-3 border border-white/10">
+            <div class="flex items-center justify-between text-white/50 text-xs">Tỉ lệ lấp đầy <i data-lucide="pie-chart" class="w-4 h-4 text-ipos"></i></div>
+            <div class="text-2xl font-bold mt-1">75%</div>
+            <div class="text-[11px] text-white/40">15/20 bàn</div>
+          </div>
+          <div class="col-span-2 rounded-xl bg-white/10 backdrop-blur p-3 border border-white/10">
+            <div class="text-white/50 text-xs mb-2">Lượt đặt 7 ngày</div>
+            <div class="flex items-end gap-1.5 h-14">
+              <div class="flex-1 bg-brand/40 rounded-t" style="height:45%"></div>
+              <div class="flex-1 bg-brand/50 rounded-t" style="height:62%"></div>
+              <div class="flex-1 bg-brand/70 rounded-t" style="height:80%"></div>
+              <div class="flex-1 bg-brand rounded-t" style="height:100%"></div>
+              <div class="flex-1 bg-ipos/70 rounded-t" style="height:88%"></div>
+              <div class="flex-1 bg-ipos/50 rounded-t" style="height:52%"></div>
+              <div class="flex-1 bg-ipos/60 rounded-t" style="height:66%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Feature strip -->

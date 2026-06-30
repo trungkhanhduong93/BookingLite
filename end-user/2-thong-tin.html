@@ -14,12 +14,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
-      theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2' } } }
+      theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2', ipos: '#00A88E', 'ipos-dark': '#00806C', 'ipos-bg': '#E8F7F3' } } }
     }
   </script>
   <style>
     [data-theme="light"] { --p: 19 89% 54%; --pf: 19 89% 46%; --pc: 0 0% 100%; }
     html, body { font-family: 'Be Vietnam Pro', sans-serif; }
+    body { background-image: radial-gradient(42rem 42rem at 108% -8%, rgba(242,101,34,.20), transparent 60%), radial-gradient(40rem 40rem at -12% 112%, rgba(0,168,142,.18), transparent 62%); background-attachment: fixed; }
   </style>
 </head>
 <body class="min-h-screen bg-brand-bg sm:flex sm:items-center sm:justify-center sm:py-6">

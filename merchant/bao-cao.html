@@ -13,11 +13,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2' } } } }
+    tailwind.config = { theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2', ipos: '#00A88E', 'ipos-dark': '#00806C', 'ipos-bg': '#E8F7F3' } } } }
   </script>
   <style>
     [data-theme="light"] { --p: 19 89% 54%; --pf: 19 89% 46%; --pc: 0 0% 100%; }
     html, body { font-family: 'Be Vietnam Pro', sans-serif; }
+    body { background-image: radial-gradient(34rem 22rem at 100% -6%, rgba(242,101,34,.10), transparent 60%), radial-gradient(34rem 22rem at 0% -6%, rgba(0,168,142,.10), transparent 60%), radial-gradient(rgba(15,23,42,.05) 1px, transparent 1px); background-size: 100% 100%, 100% 100%, 22px 22px; background-attachment: fixed; }
     .navlink.active { background: hsl(var(--p)); color: #fff; } .navlink.active i { color: #fff; }
     .bar { transition: height .4s ease; }
   </style>
@@ -44,7 +45,7 @@
             <span class="text-xs text-base-content/50">Tổng lượt đặt</span><div class="text-2xl font-bold mt-1">312</div>
             <div class="text-[11px] text-success inline-flex items-center gap-1"><i data-lucide="trending-up" class="w-3 h-3"></i> +18% so kỳ trước</div></div></div>
           <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body p-4">
-            <span class="text-xs text-base-content/50">Khách phục vụ</span><div class="text-2xl font-bold mt-1 text-brand">1.142</div>
+            <span class="text-xs text-base-content/50">Khách phục vụ</span><div class="text-2xl font-bold mt-1 text-ipos">1.142</div>
             <div class="text-[11px] text-success inline-flex items-center gap-1"><i data-lucide="trending-up" class="w-3 h-3"></i> +12%</div></div></div>
           <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body p-4">
             <span class="text-xs text-base-content/50">Tỉ lệ no-show</span><div class="text-2xl font-bold mt-1 text-error">6,4%</div>
@@ -63,7 +64,7 @@
           <!-- Donut trạng thái -->
           <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body items-center">
             <h2 class="font-bold self-start">Trạng thái đơn</h2>
-            <div class="radial-progress text-brand my-2" style="--value:72; --size:9rem; --thickness:1.1rem;" role="progressbar">
+            <div class="radial-progress text-ipos my-2" style="--value:72; --size:9rem; --thickness:1.1rem;" role="progressbar">
               <div class="text-center"><div class="text-2xl font-bold text-base-content">72%</div><div class="text-[11px] text-base-content/50">hoàn tất</div></div>
             </div>
             <div class="w-full space-y-1.5 text-sm">
@@ -126,7 +127,7 @@
     document.getElementById('bars').innerHTML = days.map((d,i) => `
       <div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
         <span class="text-[11px] font-semibold text-base-content/70">${d[1]}</span>
-        <div class="bar w-full rounded-t-lg ${i===3?'bg-brand':'bg-brand/30'}" style="height:${Math.round(d[1]/max*100)}%"></div>
+        <div class="bar w-full rounded-t-lg ${i===3?'bg-brand':(i>3?'bg-ipos/50':'bg-brand/30')}" style="height:${Math.round(d[1]/max*100)}%"></div>
         <span class="text-[11px] text-base-content/50">${d[0]}</span>
       </div>`).join('');
 
