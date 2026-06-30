@@ -16,6 +16,10 @@
     .catbtn.active { background: hsl(var(--p)); color:#fff; border-color: hsl(var(--p)); }
   
 
+  
+    .navlink { transition: all 0.2s ease-out; }
+    .navlink:hover:not(.active) { background-color: rgba(242,101,34, 0.08); color: #F26522; transform: translateX(4px); }
+    .navlink:hover:not(.active) i { color: #F26522; }
   </style>
 </head>
 <body class="min-h-screen bg-brand-bg sm:flex sm:items-center sm:justify-center sm:py-6">
@@ -45,7 +49,7 @@
     </div>
   </div>
 
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.360.0/dist/umd/lucide.min.js"></script>
   <script>
     const MENU = [
       { cat:'Khai vị', icon:'soup', items:[

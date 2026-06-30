@@ -16,6 +16,10 @@
     .navlink.active { background: hsl(var(--p)); color: #fff; } .navlink.active i { color: #fff; }
   
 
+  
+    .navlink { transition: all 0.2s ease-out; }
+    .navlink:hover:not(.active) { background-color: rgba(242,101,34, 0.08); color: #F26522; transform: translateX(4px); }
+    .navlink:hover:not(.active) i { color: #F26522; }
   </style>
 </head>
 <body class="bg-base-200 min-h-screen">
@@ -93,7 +97,7 @@
     </div>
   </div>
 
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.360.0/dist/umd/lucide.min.js"></script>
   <script>
     const SLOTS = {
       '11:30': [{ name:'Đỗ Quỳnh Chi', g:2, t:'B02', s:'cancelled' }],

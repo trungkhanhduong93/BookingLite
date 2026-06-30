@@ -17,6 +17,10 @@
     .bar { transition: height .4s ease; }
   
 
+  
+    .navlink { transition: all 0.2s ease-out; }
+    .navlink:hover:not(.active) { background-color: rgba(242,101,34, 0.08); color: #F26522; transform: translateX(4px); }
+    .navlink:hover:not(.active) i { color: #F26522; }
   </style>
 </head>
 <body class="bg-base-200 min-h-screen">
@@ -115,7 +119,7 @@
     </div>
   </div>
 
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.360.0/dist/umd/lucide.min.js"></script>
   <script>
     // Bar chart 7 ngày
     const days = [['T4',32],['T5',45],['T6',58],['T7',72],['CN',64],['T2',38],['T3',48]];

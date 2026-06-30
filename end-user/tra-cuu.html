@@ -15,6 +15,10 @@
     body { background-image: radial-gradient(42rem 42rem at 108% -8%, rgba(242,101,34,.20), transparent 60%), radial-gradient(40rem 40rem at -12% 112%, rgba(0,103,177,.18), transparent 62%); background-attachment: fixed; }
   
 
+  
+    .navlink { transition: all 0.2s ease-out; }
+    .navlink:hover:not(.active) { background-color: rgba(242,101,34, 0.08); color: #F26522; transform: translateX(4px); }
+    .navlink:hover:not(.active) i { color: #F26522; }
   </style>
 </head>
 <body class="min-h-screen bg-brand-bg sm:flex sm:items-center sm:justify-center sm:py-6">
@@ -88,7 +92,7 @@
     </div>
   </div>
 
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.360.0/dist/umd/lucide.min.js"></script>
   <script>
     lucide.createIcons();
     const STEPS = [

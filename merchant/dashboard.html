@@ -24,6 +24,10 @@
     .tabs-boxed .tab-active { background-color: hsl(var(--p)) !important; color: white !important; box-shadow: 0 4px 12px -2px rgba(242,101,34,0.3) !important; }
     @keyframes slideUpFade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
     #tbody tr { animation: slideUpFade 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  
+    .navlink { transition: all 0.2s ease-out; }
+    .navlink:hover:not(.active) { background-color: rgba(242,101,34, 0.08); color: #F26522; transform: translateX(4px); }
+    .navlink:hover:not(.active) i { color: #F26522; }
   </style>
 </head>
 <body class="bg-base-200 min-h-screen">
@@ -142,7 +146,7 @@
     </div>
   </div>
 
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.360.0/dist/umd/lucide.min.js"></script>
   <script>
     const BOOKINGS = [
       { code: '#BK-0048', name: 'Trần Thu Hà',    phone: '0912 345 678', time: '19:00', guests: 4, status: 'confirmed' },
