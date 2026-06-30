@@ -218,7 +218,7 @@
       document.getElementById('tbody').innerHTML = rows.map((b, idx) => {
         const s = STATUS[b.status];
         return `
-        <a href="booking-detail.html" class="flex flex-col sm:grid sm:grid-cols-[64px_1fr_90px_110px_130px_20px] sm:items-center gap-3 sm:gap-4 p-4 border-b border-base-200 last:border-0 hover:bg-base-50 transition-colors active:bg-base-200" style="animation: fadeScale 0.3s ease-out forwards; animation-delay: ${idx * 0.05}s; opacity: 0;">
+        <a href="booking-detail.html?code=${b.code.replace('#','')}${location.search.includes('branch=2') ? '&branch=2' : ''}" class="flex flex-col sm:grid sm:grid-cols-[64px_1fr_90px_110px_130px_20px] sm:items-center gap-3 sm:gap-4 p-4 border-b border-base-200 last:border-0 hover:bg-base-50 transition-colors active:bg-base-200" style="animation: fadeScale 0.3s ease-out forwards; animation-delay: ${idx * 0.05}s; opacity: 0;">
           
           <!-- Mobile Wrapper (contents on desktop to flatten grid) -->
           <div class="flex items-start gap-4 sm:contents">
