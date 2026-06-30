@@ -87,31 +87,32 @@
         <div class="p-4 border-b border-base-200">
           <a href="index.html" class="text-xl font-bold text-brand inline-flex items-center gap-2"><i data-lucide="utensils-crossed" class="w-6 h-6"></i> Booking<span class="text-base-content">Lite</span></a>
           <div class="mt-3 relative">
-            <details class="dropdown w-full group">
+            <details class="dropdown w-full group" id="branchDropdown">
               <summary class="flex items-center gap-2 bg-brand-bg hover:bg-orange-100 rounded-lg p-2 transition-colors cursor-pointer list-none [&::-webkit-details-marker]:hidden border border-transparent group-open:border-brand/30 group-open:ring-2 group-open:ring-brand/10 group-open:bg-orange-50">
-                <div class="avatar placeholder shrink-0"><div class="bg-brand shadow-sm text-white rounded-lg w-9"><span class="text-sm font-bold">TQ</span></div></div>
+                <div class="avatar placeholder shrink-0"><div id="activeBranchAvatar" class="bg-brand shadow-sm text-white rounded-lg w-9"><span class="text-sm font-bold">TQ</span></div></div>
                 <div class="leading-tight flex-1 min-w-0">
-                  <p class="text-sm font-bold text-brand truncate">Trum Quán 1</p>
-                  <p class="text-[11px] text-base-content/50 truncate">Gói Pro · Quận 5</p>
+                  <p id="activeBranchName" class="text-sm font-bold text-brand truncate">Trum Quán 1</p>
+                  <p id="activeBranchAddress" class="text-[11px] text-base-content/50 truncate">Gói Pro · Quận 5</p>
                 </div>
                 <i data-lucide="chevrons-up-down" class="w-4 h-4 text-brand/50 shrink-0 transition-transform group-open:rotate-180"></i>
               </summary>
               <ul class="dropdown-content menu z-[100] p-1.5 bg-base-100/95 backdrop-blur-xl rounded-xl border border-base-200 w-full mt-2 font-medium shadow-xl">
                 <li>
-                  <a class="flex items-center justify-between px-3 py-2.5 rounded-lg bg-orange-50 text-brand hover:bg-orange-100 transition-colors cursor-pointer mb-1">
+                  <a href="?branch=1" class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-orange-100 transition-colors cursor-pointer mb-1 branch-link" data-branch="1">
                     <div class="flex items-center gap-2">
                       <div class="w-6 h-6 rounded-md bg-brand shadow-sm text-white flex items-center justify-center text-[10px] font-bold shrink-0">TQ</div>
                       <span class="truncate">Trum Quán 1</span>
                     </div>
-                    <i data-lucide="check" class="w-4 h-4 shrink-0"></i>
+                    <i data-lucide="check" class="w-4 h-4 shrink-0 hidden check-icon"></i>
                   </a>
                 </li>
                 <li>
-                  <a class="flex items-center px-3 py-2.5 rounded-lg hover:bg-base-200/50 hover:text-base-content transition-colors cursor-pointer text-base-content/70">
+                  <a href="?branch=2" class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-base-200/50 hover:text-base-content transition-colors cursor-pointer text-base-content/70 branch-link" data-branch="2">
                     <div class="flex items-center gap-2">
                       <div class="w-6 h-6 rounded-md bg-base-300 shadow-sm text-base-content/60 flex items-center justify-center text-[10px] font-bold shrink-0">TQ</div>
-                      <span class="truncate">Trum Quán 2</span>
+                      <span class="truncate text-base-content/80">Trum Quán 2</span>
                     </div>
+                    <i data-lucide="check" class="w-4 h-4 shrink-0 hidden check-icon"></i>
                   </a>
                 </li>
               </ul>

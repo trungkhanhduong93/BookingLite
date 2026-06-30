@@ -69,11 +69,24 @@
           <!-- Multi-branch selection -->
           <div class="mb-1">
             <label class="label p-0 pb-2"><span class="label-text font-bold text-base-content inline-flex items-center gap-1.5"><i data-lucide="network" class="w-4 h-4 text-brand"></i> Bạn có bao nhiêu chi nhánh?</span></label>
-            <div class="join w-full shadow-sm">
-              <button type="button" class="btn btn-outline border-base-300 join-item hover:bg-base-200 hover:text-base-content bg-base-100" id="btnMinus"><i data-lucide="minus" class="w-4 h-4"></i></button>
-              <input id="branchCount" type="number" min="1" value="1" class="input input-bordered join-item w-full text-center font-bold text-lg focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand" />
-              <button type="button" class="btn btn-outline border-base-300 join-item hover:bg-base-200 hover:text-base-content bg-base-100" id="btnPlus"><i data-lucide="plus" class="w-4 h-4"></i></button>
+            <div class="flex items-center justify-between bg-base-200/50 p-2.5 rounded-2xl border border-base-200/60 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] transition-colors hover:bg-base-200/80">
+              <button type="button" class="btn btn-circle btn-sm bg-white border-base-200 shadow-sm text-base-content hover:bg-base-100 hover:border-brand hover:text-brand hover:scale-105 transition-all" id="btnMinus">
+                <i data-lucide="minus" class="w-4 h-4"></i>
+              </button>
+              <div class="flex-1 flex justify-center">
+                <input id="branchCount" type="number" min="1" value="1" class="w-20 text-center font-extrabold text-2xl bg-transparent border-0 focus:ring-0 text-base-content p-0" style="-moz-appearance: textfield;" />
+              </div>
+              <button type="button" class="btn btn-circle btn-sm bg-white border-base-200 shadow-sm text-base-content hover:bg-base-100 hover:border-brand hover:text-brand hover:scale-105 transition-all" id="btnPlus">
+                <i data-lucide="plus" class="w-4 h-4"></i>
+              </button>
             </div>
+            <style>
+              input[type=number]::-webkit-inner-spin-button, 
+              input[type=number]::-webkit-outer-spin-button { 
+                -webkit-appearance: none; 
+                margin: 0; 
+              }
+            </style>
           </div>
           
           <div class="divider my-0 opacity-50"></div>
