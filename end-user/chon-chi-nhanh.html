@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Chọn chi nhánh - Trum Quán</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="min-h-screen bg-base-200 sm:flex sm:items-center sm:justify-center sm:py-6">
+
+  <div class="w-full max-w-md mx-auto bg-base-100 flex flex-col min-h-[100dvh] sm:min-h-0 sm:h-[800px] sm:max-h-[90vh] overflow-hidden sm:rounded-[2rem] sm:shadow-2xl relative">
+    
+    <!-- Floating Header Navigation (Back / Home) -->
+    <div class="absolute top-4 left-4 z-20">
+      <a href="../index.html" class="btn btn-circle btn-sm bg-black/20 hover:bg-black/40 backdrop-blur border-0 text-white"><i data-lucide="arrow-left" class="w-4 h-4"></i></a>
+    </div>
+    <div class="absolute top-4 right-4 z-20">
+      <a href="../index.html" class="btn btn-circle btn-sm bg-black/20 hover:bg-black/40 backdrop-blur border-0 text-white"><i data-lucide="home" class="w-4 h-4"></i></a>
+    </div>
+
+    <!-- Premium Hero Image -->
+    <div class="relative h-64 shrink-0 bg-base-300 overflow-hidden">
+      <!-- Aesthetic mesh gradient background -->
+      <div class="absolute inset-0 bg-gradient-to-br from-[#F26522] via-[#FF8A50] to-[#FF5722] opacity-90"></div>
+      <!-- Decorative pattern overlay -->
+      <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#fff 2px, transparent 2px); background-size: 24px 24px;"></div>
+      <!-- Soft gradient to blend with content below -->
+      <div class="absolute inset-0 bg-gradient-to-t from-base-100 via-transparent to-transparent"></div>
+      
+      <!-- Logo overlay -->
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-white mt-4">
+        <div class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-lg border border-white/30 mb-3">
+            <i data-lucide="utensils-crossed" class="w-10 h-10 drop-shadow-md"></i>
+        </div>
+        <h1 class="text-2xl font-extrabold tracking-tight drop-shadow-md">Trum Quán</h1>
+        <p class="text-sm font-medium opacity-90 mt-1">Chuỗi nhà hàng Fine Dining</p>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="px-5 pt-4 pb-6 flex-1 min-h-0 overflow-y-auto z-10 flex flex-col">
+      
+      <div class="text-center mb-6">
+        <h2 class="text-lg font-bold text-base-content">Vui lòng chọn chi nhánh</h2>
+        <p class="text-sm text-base-content/60 mt-1">Để chúng tôi phục vụ bạn tốt nhất</p>
+      </div>
+
+      <!-- Branch Selection -->
+      <div class="space-y-4 flex-1">
+        
+        <!-- Branch 1 -->
+        <a href="index.html" class="block group relative bg-base-100 rounded-2xl p-4 border border-base-200 shadow-sm hover:shadow-lg hover:border-[#F26522]/40 transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#F26522]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-orange-50 text-[#F26522] flex items-center justify-center shrink-0 border border-orange-100/50 shadow-sm group-hover:bg-[#F26522] group-hover:text-white transition-colors">
+              <i data-lucide="map-pin" class="w-6 h-6"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-bold text-base-content text-[16px] group-hover:text-[#F26522] transition-colors flex items-center gap-2">Trum Quán 1 <span class="badge badge-sm badge-ghost text-[10px] uppercase font-bold tracking-wider">Quận 5</span></h3>
+              <p class="text-xs font-medium text-base-content/60 mt-1 truncate">77 Trần Nhân Tôn, Phường An Đông</p>
+              <div class="flex items-center gap-3 mt-2 text-[11px] font-medium text-base-content/50">
+                <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> 10:00 - 22:00</span>
+                <span class="flex items-center gap-1"><i data-lucide="phone" class="w-3.5 h-3.5"></i> Nhánh 1</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-center h-12 w-8 shrink-0 text-base-content/20 group-hover:text-[#F26522] transition-colors">
+              <i data-lucide="chevron-right" class="w-6 h-6"></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Branch 2 -->
+        <a href="index.html" class="block group relative bg-base-100 rounded-2xl p-4 border border-base-200 shadow-sm hover:shadow-lg hover:border-[#F26522]/40 transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#F26522]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-orange-50 text-[#F26522] flex items-center justify-center shrink-0 border border-orange-100/50 shadow-sm group-hover:bg-[#F26522] group-hover:text-white transition-colors">
+              <i data-lucide="map-pin" class="w-6 h-6"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-bold text-base-content text-[16px] group-hover:text-[#F26522] transition-colors flex items-center gap-2">Trum Quán 2 <span class="badge badge-sm badge-ghost text-[10px] uppercase font-bold tracking-wider">Quận 1</span></h3>
+              <p class="text-xs font-medium text-base-content/60 mt-1 truncate">123 Nguyễn Văn Cừ, Phường Cầu Kho</p>
+              <div class="flex items-center gap-3 mt-2 text-[11px] font-medium text-base-content/50">
+                <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> 11:00 - 23:00</span>
+                <span class="flex items-center gap-1"><i data-lucide="phone" class="w-3.5 h-3.5"></i> Nhánh 2</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-center h-12 w-8 shrink-0 text-base-content/20 group-hover:text-[#F26522] transition-colors">
+              <i data-lucide="chevron-right" class="w-6 h-6"></i>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Footer Note -->
+      <div class="text-center mt-6">
+        <p class="text-[11px] font-semibold text-base-content/40 flex items-center justify-center gap-1.5">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Đặt bàn an toàn & nhanh chóng
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <style>
+    .overflow-y-auto::-webkit-scrollbar { display: none; }
+    .overflow-y-auto { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.360.0/dist/umd/lucide.min.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>
