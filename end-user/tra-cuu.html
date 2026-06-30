@@ -105,6 +105,30 @@
     </div>
   </div>
 
+  <!-- Modal Hủy Đơn -->
+  <dialog id="cancelModal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box p-6">
+      <h3 class="font-bold text-lg text-error flex items-center gap-2"><i data-lucide="alert-triangle" class="w-5 h-5"></i> Xác nhận huỷ đơn</h3>
+      <p class="py-4 text-sm leading-relaxed">Bạn có chắc chắn muốn gửi yêu cầu huỷ đơn <span class="font-bold">#BK-2026-0042</span> không? Quán sẽ phản hồi lại yêu cầu của bạn.</p>
+      <div class="modal-action">
+        <form method="dialog"><button class="btn btn-ghost btn-sm">Bỏ qua</button></form>
+        <button class="btn btn-error btn-sm text-white gap-1" onclick="cancelModal.close(); successModal.showModal(); lucide.createIcons();"><i data-lucide="trash-2" class="w-4 h-4"></i> Gửi yêu cầu huỷ</button>
+      </div>
+    </div>
+    <form method="dialog" class="modal-backdrop"><button>close</button></form>
+  </dialog>
+  
+  <!-- Modal Hủy Thành Công -->
+  <dialog id="successModal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box p-6 text-center">
+      <div class="w-16 h-16 rounded-full bg-success/10 text-success flex items-center justify-center mx-auto mb-4"><i data-lucide="check-circle-2" class="w-8 h-8"></i></div>
+      <h3 class="font-bold text-lg">Yêu cầu đã được gửi</h3>
+      <p class="py-3 text-sm text-base-content/60 leading-relaxed">Yêu cầu huỷ đơn #BK-2026-0042 của bạn đã được gửi. Hệ thống sẽ cập nhật trạng thái trong giây lát.</p>
+      <div class="modal-action justify-center mt-2">
+        <form method="dialog"><button class="btn btn-primary btn-sm btn-wide">Đóng lại</button></form>
+      </div>
+    </div>
+  </dialog>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.360.0/dist/umd/lucide.min.js"></script>
   <script>
     lucide.createIcons();
@@ -131,7 +155,7 @@
       document.getElementById('result').scrollIntoView({ behavior:'smooth', block:'start' });
     });
     function cancelBooking(){
-      if (confirm('Bạn chắc chắn muốn huỷ đơn #BK-2026-0042?')) alert('Đã gửi yêu cầu huỷ. Quán sẽ xác nhận trong giây lát. (demo)');
+      document.getElementById('cancelModal').showModal();
     }
   </script>
 </body>
