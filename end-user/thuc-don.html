@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="trung.duong (Trum)">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="theme-color" content="#F26522">
+  <title>Thực đơn — Nhà hàng Trum Quán</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = { theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2' } } } }
+  </script>
+  <style>
+    [data-theme="light"] { --p: 19 89% 54%; --pf: 19 89% 46%; --pc: 0 0% 100%; }
+    html, body { font-family: 'Be Vietnam Pro', sans-serif; }
+    .catbtn.active { background: hsl(var(--p)); color:#fff; border-color: hsl(var(--p)); }
+  </style>
+</head>
+<body class="min-h-screen bg-brand-bg sm:flex sm:items-center sm:justify-center sm:py-6">
+  <div class="w-full max-w-md mx-auto bg-base-100 flex flex-col h-[100dvh] sm:h-[800px] sm:max-h-[90vh] overflow-hidden shadow-sm sm:rounded-[2rem] sm:shadow-2xl">
+
+    <!-- Header -->
+    <div class="navbar bg-base-100 border-b border-base-200 px-3 shrink-0">
+      <div class="flex-1 flex items-center">
+        <a href="index.html" class="btn btn-ghost btn-sm btn-circle"><i data-lucide="arrow-left" class="w-5 h-5"></i></a>
+        <span class="font-semibold ml-1">Thực đơn · Trum Quán</span>
+      </div>
+      <a href="../index.html" class="btn btn-ghost btn-sm btn-circle" title="Về trang chủ"><i data-lucide="house" class="w-5 h-5"></i></a>
+    </div>
+
+    <!-- Tabs danh mục -->
+    <div class="px-3 py-2 border-b border-base-200 shrink-0 overflow-x-auto">
+      <div class="flex gap-2 w-max" id="cats"></div>
+    </div>
+
+    <!-- Danh sách món -->
+    <div class="flex-1 min-h-0 overflow-y-auto px-4 py-4 space-y-6" id="menu"></div>
+
+    <!-- CTA -->
+    <div class="bg-base-100 border-t border-base-200 p-4 shrink-0">
+      <a href="1-chon-gio.html" class="btn btn-primary btn-block btn-lg gap-1"><i data-lucide="calendar-plus" class="w-5 h-5"></i> Đặt bàn ngay</a>
+      <p class="text-center text-[11px] text-base-content/40 mt-2">Tác giả: trung.duong (Trum)</p>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    const MENU = [
+      { cat:'Khai vị', icon:'soup', items:[
+        { n:'Gỏi cuốn tôm thịt', d:'Tôm sú, thịt ba chỉ, rau thơm', p:'89.000đ', hot:true },
+        { n:'Súp bào ngư', d:'Bào ngư, nấm đông cô', p:'159.000đ' },
+        { n:'Chả giò hải sản', d:'Cua, tôm, miến', p:'99.000đ' },
+      ]},
+      { cat:'Món chính', icon:'utensils', items:[
+        { n:'Bò Wagyu áp chảo', d:'Bò Wagyu A5, sốt tiêu đen', p:'690.000đ', hot:true },
+        { n:'Cá chẽm hấp Hong Kong', d:'Cá chẽm tươi, gừng hành', p:'320.000đ' },
+        { n:'Vịt quay Bắc Kinh', d:'Phục vụ kèm bánh tráng', p:'450.000đ' },
+        { n:'Lẩu Thái hải sản', d:'Tôm, mực, nghêu, nấm', p:'389.000đ' },
+      ]},
+      { cat:'Tráng miệng', icon:'cake', items:[
+        { n:'Chè khúc bạch', d:'Hạnh nhân, vải, nhãn', p:'59.000đ' },
+        { n:'Bánh flan caramel', d:'Trứng gà, caramel', p:'45.000đ' },
+      ]},
+      { cat:'Đồ uống', icon:'wine', items:[
+        { n:'Vang đỏ Chile (ly)', d:'Cabernet Sauvignon', p:'120.000đ' },
+        { n:'Nước ép thanh lọc', d:'Cần tây, táo, dứa', p:'69.000đ' },
+        { n:'Trà sen Tây Hồ', d:'Ấm 4 người', p:'89.000đ' },
+      ]},
+    ];
+    const cats = document.getElementById('cats');
+    const menu = document.getElementById('menu');
+    cats.innerHTML = MENU.map((c,i) => `<button class="catbtn btn btn-sm btn-outline font-normal ${i===0?'active':''}" data-i="${i}">${c.cat}</button>`).join('');
+    menu.innerHTML = MENU.map((c,i) => `
+      <section id="sec${i}">
+        <h2 class="font-bold text-base mb-2 flex items-center gap-2"><i data-lucide="${c.icon}" class="w-4 h-4 text-brand"></i> ${c.cat}</h2>
+        <div class="space-y-2">
+          ${c.items.map(it => `
+            <div class="flex gap-3 items-start p-2 rounded-xl hover:bg-base-200/60 transition">
+              <div class="w-14 h-14 rounded-lg bg-brand-bg text-brand/60 flex items-center justify-center shrink-0"><i data-lucide="${c.icon}" class="w-6 h-6"></i></div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-1.5"><span class="font-medium">${it.n}</span>${it.hot?'<span class="badge badge-xs bg-brand text-white border-0">Hot</span>':''}</div>
+                <p class="text-xs text-base-content/50 truncate">${it.d}</p>
+              </div>
+              <span class="font-semibold text-brand text-sm whitespace-nowrap">${it.p}</span>
+            </div>`).join('')}
+        </div>
+      </section>`).join('');
+    cats.querySelectorAll('.catbtn').forEach(b => b.addEventListener('click', () => {
+      cats.querySelectorAll('.catbtn').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      document.getElementById('sec'+b.dataset.i).scrollIntoView({ behavior:'smooth', block:'start' });
+    }));
+    lucide.createIcons();
+  </script>
+</body>
+</html>

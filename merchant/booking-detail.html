@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="trung.duong (Trum)">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="theme-color" content="#F26522">
+  <title>Chi tiết đơn #BK-0048 — Booking Lite</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = { theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2' } } } }
+  </script>
+  <style>
+    [data-theme="light"] { --p: 19 89% 54%; --pf: 19 89% 46%; --pc: 0 0% 100%; }
+    html, body { font-family: 'Be Vietnam Pro', sans-serif; }
+  </style>
+</head>
+<body class="bg-base-200 min-h-screen">
+
+  <header class="navbar bg-base-100 border-b border-base-200 sticky top-0 z-30 px-4">
+    <a href="dashboard.html" class="btn btn-ghost btn-sm btn-circle mr-1"><i data-lucide="arrow-left" class="w-5 h-5"></i></a>
+    <div class="flex-1">
+      <h1 class="text-lg font-bold inline-flex items-center gap-2">Đơn <span class="font-mono">#BK-0048</span>
+        <span class="badge badge-success badge-sm gap-1"><i data-lucide="check" class="w-3 h-3"></i> Đã xác nhận</span></h1>
+    </div>
+    <div class="flex-none"><a href="dashboard.html" class="btn btn-ghost btn-sm gap-1"><i data-lucide="layout-dashboard" class="w-4 h-4"></i> <span class="hidden sm:inline">Dashboard</span></a></div>
+  </header>
+
+  <main class="max-w-5xl mx-auto p-4 sm:p-6 grid lg:grid-cols-3 gap-5">
+
+    <!-- Cột trái -->
+    <div class="lg:col-span-2 space-y-5">
+      <!-- Khách -->
+      <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder"><div class="bg-brand text-white rounded-full w-12"><span>HH</span></div></div>
+          <div class="flex-1">
+            <div class="flex items-center gap-2"><h2 class="font-bold text-lg">Trần Thu Hà</h2><span class="badge badge-warning badge-sm gap-1"><i data-lucide="crown" class="w-3 h-3"></i> VIP</span></div>
+            <p class="text-sm text-base-content/60">14 lượt đặt · 0 no-show</p>
+          </div>
+          <div class="flex gap-1">
+            <a href="tel:0912345678" class="btn btn-outline btn-sm btn-circle"><i data-lucide="phone" class="w-4 h-4"></i></a>
+            <button class="btn btn-outline btn-sm btn-circle"><i data-lucide="message-square" class="w-4 h-4"></i></button>
+          </div>
+        </div>
+      </div></div>
+
+      <!-- Thông tin đơn -->
+      <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body">
+        <h2 class="font-bold mb-1">Thông tin đặt bàn</h2>
+        <div class="grid sm:grid-cols-2 gap-y-3 gap-x-6 text-sm">
+          <div class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-brand"></i> <span class="text-base-content/50">Ngày:</span> <b>Thứ 3, 30/06/2026</b></div>
+          <div class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-brand"></i> <span class="text-base-content/50">Giờ:</span> <b>19:00</b></div>
+          <div class="flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-brand"></i> <span class="text-base-content/50">Số khách:</span> <b>4 người</b></div>
+          <div class="flex items-center gap-2"><i data-lucide="armchair" class="w-4 h-4 text-brand"></i> <span class="text-base-content/50">Bàn:</span> <b>B03 · Tầng 1</b></div>
+          <div class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-brand"></i> <span class="text-base-content/50">SĐT:</span> <b>0912 345 678</b></div>
+          <div class="flex items-center gap-2"><i data-lucide="tag" class="w-4 h-4 text-brand"></i> <span class="text-base-content/50">Nguồn:</span> <b>Link đặt bàn</b></div>
+        </div>
+        <div class="mt-3 p-3 rounded-lg bg-base-200 text-sm"><span class="text-base-content/50">Ghi chú khách: </span>Xin bàn gần cửa sổ, có 1 ghế em bé.</div>
+      </div></div>
+
+      <!-- Timeline -->
+      <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body">
+        <h2 class="font-bold mb-2">Tiến trình đơn</h2>
+        <ul class="timeline timeline-vertical timeline-compact" id="tl"></ul>
+      </div></div>
+    </div>
+
+    <!-- Cột phải: thao tác -->
+    <div class="space-y-5">
+      <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body gap-3">
+        <h2 class="font-bold">Thao tác</h2>
+        <button class="btn btn-primary btn-block gap-2"><i data-lucide="user-check" class="w-4 h-4"></i> Check-in khách</button>
+        <div>
+          <label class="label py-1"><span class="label-text text-xs">Đổi/Xếp bàn</span></label>
+          <select class="select select-bordered select-sm w-full"><option>B03 · Tầng 1 (4 chỗ)</option><option>B06 · Tầng 1 (4 chỗ)</option><option>V01 · Sân vườn (4 chỗ)</option></select>
+        </div>
+        <button class="btn btn-outline btn-block btn-sm gap-2"><i data-lucide="clock" class="w-4 h-4"></i> Đổi giờ</button>
+        <button class="btn btn-outline btn-error btn-block btn-sm gap-2"><i data-lucide="x" class="w-4 h-4"></i> Huỷ đơn</button>
+      </div></div>
+
+      <div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body gap-2">
+        <h2 class="font-bold">Ghi chú nội bộ</h2>
+        <textarea class="textarea textarea-bordered w-full" rows="3" placeholder="Ghi chú cho nhân viên…"></textarea>
+        <button class="btn btn-outline btn-sm gap-1"><i data-lucide="save" class="w-4 h-4"></i> Lưu ghi chú</button>
+      </div></div>
+    </div>
+
+    <p class="text-xs text-base-content/40 text-center lg:col-span-3">Tác giả: trung.duong (Trum)</p>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    const STEPS = [
+      { t:'Khách đặt bàn', time:'30/06 · 09:12', done:true, icon:'calendar-plus' },
+      { t:'Quán xác nhận', time:'30/06 · 09:15', done:true, icon:'check' },
+      { t:'Check-in khách', time:'Dự kiến 19:00', done:false, icon:'user-check' },
+      { t:'Hoàn tất', time:'—', done:false, icon:'flag' },
+    ];
+    document.getElementById('tl').innerHTML = STEPS.map((s,i) => `
+      <li>
+        ${i>0?`<hr class="${s.done?'bg-brand':''}"/>`:''}
+        <div class="timeline-middle">
+          <div class="w-7 h-7 rounded-full flex items-center justify-center ${s.done?'bg-brand text-white':'bg-base-200 text-base-content/40'}"><i data-lucide="${s.icon}" class="w-4 h-4"></i></div>
+        </div>
+        <div class="timeline-end mb-4 ml-1">
+          <p class="font-medium text-sm ${s.done?'':'text-base-content/40'}">${s.t}</p>
+          <p class="text-xs text-base-content/50">${s.time}</p>
+        </div>
+        ${i<STEPS.length-1?`<hr class="${STEPS[i+1].done?'bg-brand':''}"/>`:''}
+      </li>`).join('');
+    lucide.createIcons();
+  </script>
+</body>
+</html>

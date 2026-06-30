@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="trung.duong (Trum)">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#F26522">
+  <title>Booking Lite — Nhận đặt bàn online, onboarding siêu nhanh</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2' } } }
+    }
+  </script>
+  <style>
+    [data-theme="light"] { --p: 19 89% 54%; --pf: 19 89% 46%; --pc: 0 0% 100%; }
+    html, body { font-family: 'Be Vietnam Pro', sans-serif; }
+  </style>
+</head>
+<body class="min-h-screen bg-brand-bg">
+
+  <!-- Navbar -->
+  <div class="navbar bg-base-100/80 backdrop-blur sticky top-0 z-50 border-b border-base-200">
+    <div class="max-w-5xl mx-auto w-full px-4 flex items-center">
+      <div class="flex-1">
+        <span class="text-xl font-bold text-brand inline-flex items-center gap-2">
+          <i data-lucide="utensils-crossed" class="w-6 h-6"></i>
+          Booking<span class="text-base-content">Lite</span>
+        </span>
+      </div>
+      <div class="flex-none">
+        <a href="merchant/index.html" class="btn btn-sm btn-ghost">Dành cho chủ quán</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="max-w-5xl mx-auto px-4 pt-12 pb-8 text-center">
+    <span class="badge badge-lg bg-brand-bg text-brand border-brand/30 font-medium mb-4 gap-1.5 py-3">
+      <i data-lucide="zap" class="w-4 h-4"></i> Onboarding siêu nhanh — chỉ 2 phút
+    </span>
+    <h1 class="text-3xl sm:text-5xl font-bold leading-tight text-base-content">
+      Nhận đơn đặt bàn online<br>
+      <span class="text-brand">không cần app, không phức tạp</span>
+    </h1>
+    <p class="mt-4 text-base-content/70 max-w-xl mx-auto">
+      Booking Lite tạo cho quán của bạn một trang đặt bàn riêng. Khách đặt trong vài chạm,
+      bạn quản lý tất cả trên một màn hình.
+    </p>
+  </section>
+
+  <!-- 2 lối vào -->
+  <section class="max-w-3xl mx-auto px-4 pb-16 grid gap-5 sm:grid-cols-2">
+    <!-- Khách -->
+    <a href="end-user/index.html" class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow border border-base-200">
+      <div class="card-body items-center text-center">
+        <div class="w-14 h-14 rounded-2xl bg-brand-bg text-brand flex items-center justify-center mb-1">
+          <i data-lucide="user-round" class="w-7 h-7"></i>
+        </div>
+        <h2 class="card-title">Tôi là khách</h2>
+        <p class="text-sm text-base-content/60">Đặt bàn tại nhà hàng yêu thích chỉ trong vài giây.</p>
+        <div class="card-actions mt-3 w-full">
+          <button class="btn btn-primary w-full gap-1">Đặt bàn ngay <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+        </div>
+      </div>
+    </a>
+    <!-- Chủ quán -->
+    <a href="merchant/index.html" class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow border border-base-200">
+      <div class="card-body items-center text-center">
+        <div class="w-14 h-14 rounded-2xl bg-brand-bg text-brand flex items-center justify-center mb-1">
+          <i data-lucide="chef-hat" class="w-7 h-7"></i>
+        </div>
+        <h2 class="card-title">Tôi là chủ quán</h2>
+        <p class="text-sm text-base-content/60">Tạo link đặt bàn cho quán và quản lý booking dễ dàng.</p>
+        <div class="card-actions mt-3 w-full">
+          <button class="btn btn-outline btn-primary w-full gap-1">Bắt đầu miễn phí <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- Feature strip -->
+  <section class="max-w-4xl mx-auto px-4 pb-20 grid gap-6 sm:grid-cols-3 text-center">
+    <div class="flex flex-col items-center">
+      <i data-lucide="link" class="w-8 h-8 text-brand mb-2"></i>
+      <h3 class="font-semibold">Link đặt bàn riêng</h3>
+      <p class="text-sm text-base-content/60">Chia sẻ qua Facebook, Zalo, in QR lên bàn.</p>
+    </div>
+    <div class="flex flex-col items-center">
+      <i data-lucide="smartphone" class="w-8 h-8 text-brand mb-2"></i>
+      <h3 class="font-semibold">Tối ưu di động</h3>
+      <p class="text-sm text-base-content/60">Khách đặt mượt mà ngay trên điện thoại.</p>
+    </div>
+    <div class="flex flex-col items-center">
+      <i data-lucide="bar-chart-3" class="w-8 h-8 text-brand mb-2"></i>
+      <h3 class="font-semibold">Quản lý tập trung</h3>
+      <p class="text-sm text-base-content/60">Mọi booking gọn trong một dashboard.</p>
+    </div>
+  </section>
+
+  <footer class="footer footer-center p-6 bg-base-100 border-t border-base-200 text-base-content/50 text-sm">
+    <aside class="space-y-1">
+      <p>© 2026 Booking Lite — Prototype lấy cảm hứng từ iPOS.vn</p>
+      <p class="inline-flex items-center gap-1.5">
+        <i data-lucide="code-2" class="w-4 h-4"></i> Tác giả: <span class="font-medium text-base-content/70">trung.duong (Trum)</span>
+      </p>
+    </aside>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>lucide.createIcons();</script>
+
+</body>
+</html>

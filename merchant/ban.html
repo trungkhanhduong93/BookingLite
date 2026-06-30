@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="trung.duong (Trum)">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="theme-color" content="#F26522">
+  <title>Sơ đồ bàn — Booking Lite</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = { theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2' } } } }
+  </script>
+  <style>
+    [data-theme="light"] { --p: 19 89% 54%; --pf: 19 89% 46%; --pc: 0 0% 100%; }
+    html, body { font-family: 'Be Vietnam Pro', sans-serif; }
+    .navlink.active { background: hsl(var(--p)); color: #fff; } .navlink.active i { color: #fff; }
+  </style>
+</head>
+<body class="bg-base-200 min-h-screen">
+  <div class="drawer lg:drawer-open">
+    <input id="nav" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex flex-col min-h-screen">
+
+      <header class="navbar bg-base-100 border-b border-base-200 sticky top-0 z-30 px-4">
+        <label for="nav" class="btn btn-ghost btn-sm btn-circle lg:hidden mr-1"><i data-lucide="menu" class="w-5 h-5"></i></label>
+        <div class="flex-1"><h1 class="text-lg font-bold">Sơ đồ bàn</h1></div>
+        <div class="flex-none gap-1.5">
+          <button class="btn btn-primary btn-sm gap-1"><i data-lucide="plus" class="w-4 h-4"></i> <span class="hidden sm:inline">Thêm bàn</span></button>
+          <div class="avatar placeholder"><div class="bg-brand text-white rounded-full w-9"><span class="text-sm">TQ</span></div></div>
+        </div>
+      </header>
+
+      <main class="p-4 sm:p-6 flex-1 space-y-5">
+        <!-- Tóm tắt + chú thích -->
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div class="flex gap-2">
+            <div class="badge badge-lg bg-base-100 border-base-200 gap-1.5 py-3"><span class="w-2.5 h-2.5 rounded-full bg-success"></span> Trống <b class="ml-1">5</b></div>
+            <div class="badge badge-lg bg-base-100 border-base-200 gap-1.5 py-3"><span class="w-2.5 h-2.5 rounded-full bg-warning"></span> Đặt trước <b class="ml-1">9</b></div>
+            <div class="badge badge-lg bg-base-100 border-base-200 gap-1.5 py-3"><span class="w-2.5 h-2.5 rounded-full bg-brand"></span> Đang dùng <b class="ml-1">6</b></div>
+          </div>
+          <p class="text-sm text-base-content/50">Cập nhật theo thời gian thực (demo)</p>
+        </div>
+
+        <div id="floor" class="space-y-6"></div>
+
+        <p class="text-xs text-base-content/40 text-center pt-2">Tác giả: trung.duong (Trum)</p>
+      </main>
+    </div>
+
+    <div class="drawer-side z-40">
+      <label for="nav" class="drawer-overlay"></label>
+      <aside class="w-64 min-h-full bg-base-100 border-r border-base-200 flex flex-col">
+        <div class="p-4 border-b border-base-200">
+          <a href="index.html" class="text-xl font-bold text-brand inline-flex items-center gap-2"><i data-lucide="utensils-crossed" class="w-6 h-6"></i> Booking<span class="text-base-content">Lite</span></a>
+          <div class="mt-3 flex items-center gap-2 bg-brand-bg rounded-lg p-2">
+            <div class="avatar placeholder"><div class="bg-brand text-white rounded-lg w-9"><span class="text-sm">TQ</span></div></div>
+            <div class="leading-tight"><p class="text-sm font-semibold">Trum Quán</p><p class="text-[11px] text-base-content/50">Gói Pro · TP.HCM</p></div>
+          </div>
+        </div>
+        <ul class="menu p-3 gap-1 flex-1 text-[15px]">
+          <li><a href="dashboard.html" class="navlink"><i data-lucide="layout-dashboard" class="w-5 h-5"></i> Tổng quan</a></li>
+          <li><a href="lich.html" class="navlink"><i data-lucide="calendar-days" class="w-5 h-5"></i> Lịch đặt bàn</a></li>
+          <li><a href="ban.html" class="navlink active"><i data-lucide="grid-3x3" class="w-5 h-5"></i> Sơ đồ bàn</a></li>
+          <li><a href="khach-hang.html" class="navlink"><i data-lucide="contact" class="w-5 h-5"></i> Khách hàng</a></li>
+          <li><a href="bao-cao.html" class="navlink"><i data-lucide="bar-chart-3" class="w-5 h-5"></i> Báo cáo</a></li>
+          <li><a href="cai-dat.html" class="navlink"><i data-lucide="settings" class="w-5 h-5"></i> Cài đặt quán</a></li>
+        </ul>
+        <div class="p-3 border-t border-base-200 space-y-1">
+          <a href="../end-user/index.html" target="_blank" class="btn btn-outline btn-primary btn-sm btn-block gap-1"><i data-lucide="external-link" class="w-4 h-4"></i> Xem trang đặt bàn</a>
+          <a href="index.html" class="btn btn-ghost btn-sm btn-block gap-1 text-base-content/60"><i data-lucide="log-out" class="w-4 h-4"></i> Đăng xuất</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // s: free | booked | using
+    const AREAS = [
+      { name:'Tầng 1 · Trong nhà', tables:[
+        {n:'B01',c:2,s:'using'},{n:'B02',c:2,s:'free'},{n:'B03',c:4,s:'booked',by:'Thu Hà 19:00'},
+        {n:'B04',c:4,s:'using'},{n:'B05',c:6,s:'booked',by:'Hoàng Anh 18:30'},{n:'B06',c:4,s:'free'},
+        {n:'B07',c:6,s:'booked',by:'Đức Thắng 12:00'},{n:'B08',c:2,s:'using'},
+      ]},
+      { name:'Sân vườn', tables:[
+        {n:'V01',c:4,s:'free'},{n:'V02',c:4,s:'booked',by:'Khánh Linh 21:00'},{n:'V03',c:8,s:'using'},
+        {n:'V04',c:8,s:'booked',by:'—'},{n:'V05',c:4,s:'free'},
+      ]},
+      { name:'Phòng VIP', tables:[
+        {n:'VIP1',c:10,s:'booked',by:'Hoàng Nam 20:30'},{n:'VIP2',c:12,s:'free'},
+      ]},
+    ];
+    const ST = {
+      free:   { ring:'border-success/40 bg-success/5', dot:'bg-success', label:'Trống', tcls:'' },
+      booked: { ring:'border-warning/50 bg-warning/10', dot:'bg-warning', label:'Đặt trước', tcls:'' },
+      using:  { ring:'border-brand/50 bg-brand/10', dot:'bg-brand', label:'Đang dùng', tcls:'' },
+    };
+    document.getElementById('floor').innerHTML = AREAS.map(a => `
+      <div>
+        <h2 class="font-bold text-base mb-3 flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-brand"></i> ${a.name}
+          <span class="text-xs font-normal text-base-content/40">(${a.tables.length} bàn)</span></h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+          ${a.tables.map(t => { const s=ST[t.s]; return `
+            <a href="booking-detail.html" class="card border-2 ${s.ring} hover:shadow-md transition">
+              <div class="card-body p-3 gap-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold">${t.n}</span>
+                  <span class="w-2.5 h-2.5 rounded-full ${s.dot}"></span>
+                </div>
+                <div class="text-xs text-base-content/60 inline-flex items-center gap-1"><i data-lucide="users" class="w-3.5 h-3.5"></i> ${t.c} chỗ</div>
+                <div class="text-[11px] ${t.s==='free'?'text-success':'text-base-content/50'} truncate">${t.s==='free'?'Sẵn sàng':(t.by||s.label)}</div>
+              </div>
+            </a>`; }).join('')}
+        </div>
+      </div>`).join('');
+    lucide.createIcons();
+  </script>
+</body>
+</html>

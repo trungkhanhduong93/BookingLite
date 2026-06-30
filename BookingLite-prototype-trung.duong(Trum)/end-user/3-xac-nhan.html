@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="trung.duong (Trum)">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="theme-color" content="#F26522">
+  <title>Đặt bàn thành công — Nhà hàng Trum Quán</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2' } } }
+    }
+  </script>
+  <style>
+    [data-theme="light"] { --p: 19 89% 54%; --pf: 19 89% 46%; --pc: 0 0% 100%; }
+    html, body { font-family: 'Be Vietnam Pro', sans-serif; }
+    @keyframes pop { 0% { transform: scale(0); } 70% { transform: scale(1.15); } 100% { transform: scale(1); } }
+    .pop { animation: pop .5s ease-out; }
+  </style>
+</head>
+<body class="min-h-screen bg-brand-bg sm:flex sm:items-center sm:justify-center sm:py-6">
+
+  <div class="w-full max-w-md mx-auto bg-base-100 flex flex-col h-[100dvh] sm:h-[800px] sm:max-h-[90vh] overflow-hidden shadow-sm sm:rounded-[2rem] sm:shadow-2xl">
+
+    <!-- Steps (bước 3 — hoàn tất) -->
+    <div class="px-6 pt-4 pb-3 shrink-0">
+      <div class="relative flex justify-between">
+        <div class="absolute top-4 left-10 right-10 h-1 rounded-full bg-base-200"></div>
+        <div class="absolute top-4 left-10 h-1 rounded-full bg-brand" style="width:calc(100% - 5rem)"></div>
+        <!-- 1: đã xong -->
+        <div class="relative z-10 flex flex-col items-center w-20">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center bg-brand text-white"><i data-lucide="check" class="w-4 h-4"></i></div>
+          <span class="mt-2 text-[11px] text-base-content/50 whitespace-nowrap">Chọn giờ</span>
+        </div>
+        <!-- 2: đã xong -->
+        <div class="relative z-10 flex flex-col items-center w-20">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center bg-brand text-white"><i data-lucide="check" class="w-4 h-4"></i></div>
+          <span class="mt-2 text-[11px] text-base-content/50 whitespace-nowrap">Thông tin</span>
+        </div>
+        <!-- 3: hiện tại (hoàn tất) -->
+        <div class="relative z-10 flex flex-col items-center w-20">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center bg-brand text-white ring-4 ring-brand/25"><i data-lucide="check" class="w-4 h-4"></i></div>
+          <span class="mt-2 text-[11px] font-semibold text-brand whitespace-nowrap">Xác nhận</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-1 min-h-0 overflow-y-auto">
+      <div class="px-5 min-h-full flex flex-col items-center justify-center text-center py-8">
+
+      <div class="pop w-20 h-20 rounded-full bg-success/15 flex items-center justify-center text-success mb-4">
+        <i data-lucide="check" class="w-10 h-10"></i>
+      </div>
+      <h1 class="text-2xl font-bold">Đặt bàn thành công!</h1>
+      <p class="text-base-content/60 mt-1 text-sm">Quán đã nhận yêu cầu và sẽ giữ chỗ cho bạn.</p>
+
+      <div class="badge badge-lg bg-brand-bg text-brand border-brand/30 font-semibold mt-4 py-3 gap-1.5">
+        <i data-lucide="ticket" class="w-4 h-4"></i> Mã đặt bàn: <span id="code">#BK-2026-0042</span>
+      </div>
+
+      <!-- Chi tiết -->
+      <div class="card bg-base-100 border border-base-200 w-full mt-6 text-left">
+        <div class="card-body p-5 text-sm gap-2">
+          <h2 class="font-semibold text-base mb-1">Chi tiết đặt bàn</h2>
+          <div class="flex justify-between"><span class="text-base-content/60 inline-flex items-center gap-1.5"><i data-lucide="utensils" class="w-4 h-4"></i> Nhà hàng</span><span id="sumRes" class="font-medium">—</span></div>
+          <div class="flex justify-between"><span class="text-base-content/60 inline-flex items-center gap-1.5"><i data-lucide="calendar" class="w-4 h-4"></i> Ngày</span><span id="sumDate" class="font-medium">—</span></div>
+          <div class="flex justify-between"><span class="text-base-content/60 inline-flex items-center gap-1.5"><i data-lucide="clock" class="w-4 h-4"></i> Giờ</span><span id="sumTime" class="font-medium">—</span></div>
+          <div class="flex justify-between"><span class="text-base-content/60 inline-flex items-center gap-1.5"><i data-lucide="users" class="w-4 h-4"></i> Số khách</span><span id="sumGuests" class="font-medium">—</span></div>
+          <div class="divider my-1"></div>
+          <div class="flex justify-between"><span class="text-base-content/60 inline-flex items-center gap-1.5"><i data-lucide="user" class="w-4 h-4"></i> Người đặt</span><span id="sumName" class="font-medium">—</span></div>
+          <div class="flex justify-between"><span class="text-base-content/60 inline-flex items-center gap-1.5"><i data-lucide="phone" class="w-4 h-4"></i> Điện thoại</span><span id="sumPhone" class="font-medium">—</span></div>
+          <div id="noteRow" class="flex justify-between hidden"><span class="text-base-content/60 inline-flex items-center gap-1.5"><i data-lucide="sticky-note" class="w-4 h-4"></i> Ghi chú</span><span id="sumNote" class="font-medium text-right max-w-[60%]">—</span></div>
+        </div>
+      </div>
+
+      <p class="text-xs text-base-content/50 mt-4 inline-flex items-center gap-1.5">
+        <i data-lucide="message-square" class="w-3.5 h-3.5"></i> Một tin nhắn xác nhận sẽ được gửi tới số điện thoại của bạn (demo).
+      </p>
+
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="bg-base-100 border-t border-base-200 p-4 space-y-2 shrink-0">
+      <a href="index.html" class="btn btn-primary btn-block btn-lg">Về trang nhà hàng</a>
+      <a href="../index.html" class="btn btn-ghost btn-block btn-sm">Về trang chủ Booking Lite</a>
+      <p class="text-center text-[11px] text-base-content/40">Tác giả: trung.duong (Trum)</p>
+    </div>
+
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+
+    // Đọc dữ liệu để render (TRƯỚC khi xoá)
+    let data = {};
+    try { data = JSON.parse(sessionStorage.getItem('booking') || '{}'); } catch (e) {}
+
+    function fmtDate(iso) {
+      if (!iso) return '—';
+      const d = new Date(iso + 'T00:00:00');
+      const thu = ['Chủ nhật','Thứ 2','Thứ 3','Thứ 4','Thứ 5','Thứ 6','Thứ 7'][d.getDay()];
+      return `${thu}, ${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
+    }
+    function guestLabel(g) {
+      if (!g) return '—';
+      g = String(g);
+      return g.includes('+') ? 'Trên ' + g.replace('+', '') + ' người' : g + ' người';
+    }
+
+    document.getElementById('sumRes').textContent = data.restaurant || 'Nhà hàng Trum Quán';
+    document.getElementById('sumDate').textContent = fmtDate(data.date);
+    document.getElementById('sumTime').textContent = data.time || '—';
+    document.getElementById('sumGuests').textContent = guestLabel(data.guests);
+    document.getElementById('sumName').textContent = data.name || '—';
+    document.getElementById('sumPhone').textContent = data.phone || '—';
+    if (data.note) {
+      document.getElementById('noteRow').classList.remove('hidden');
+      document.getElementById('sumNote').textContent = data.note;
+    }
+
+    // YÊU CẦU BẮT BUỘC: xoá sạch sessionStorage ngay khi load xong màn 3
+    sessionStorage.clear();
+  </script>
+
+</body>
+</html>

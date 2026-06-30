@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="trung.duong (Trum)">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="theme-color" content="#F26522">
+  <title>Tra cứu đặt bàn — Nhà hàng Trum Quán</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = { theme: { extend: { colors: { brand: '#F26522', 'brand-dark': '#D9531A', 'brand-bg': '#FFF7F2' } } } }
+  </script>
+  <style>
+    [data-theme="light"] { --p: 19 89% 54%; --pf: 19 89% 46%; --pc: 0 0% 100%; }
+    html, body { font-family: 'Be Vietnam Pro', sans-serif; }
+  </style>
+</head>
+<body class="min-h-screen bg-brand-bg sm:flex sm:items-center sm:justify-center sm:py-6">
+  <div class="w-full max-w-md mx-auto bg-base-100 flex flex-col h-[100dvh] sm:h-[800px] sm:max-h-[90vh] overflow-hidden shadow-sm sm:rounded-[2rem] sm:shadow-2xl">
+
+    <!-- Header -->
+    <div class="navbar bg-base-100 border-b border-base-200 px-3 shrink-0">
+      <div class="flex-1 flex items-center">
+        <a href="index.html" class="btn btn-ghost btn-sm btn-circle"><i data-lucide="arrow-left" class="w-5 h-5"></i></a>
+        <span class="font-semibold ml-1">Tra cứu đặt bàn</span>
+      </div>
+      <a href="../index.html" class="btn btn-ghost btn-sm btn-circle" title="Về trang chủ"><i data-lucide="house" class="w-5 h-5"></i></a>
+    </div>
+
+    <div class="flex-1 min-h-0 overflow-y-auto px-5 py-5 space-y-5">
+
+      <!-- Form tra cứu -->
+      <div class="text-center">
+        <div class="w-14 h-14 rounded-2xl bg-brand-bg text-brand flex items-center justify-center mx-auto mb-2"><i data-lucide="search-check" class="w-7 h-7"></i></div>
+        <h1 class="text-xl font-bold">Theo dõi đơn đặt bàn</h1>
+        <p class="text-sm text-base-content/60 mt-1">Nhập mã đơn và số điện thoại để xem trạng thái.</p>
+      </div>
+
+      <form id="form" class="space-y-3">
+        <div>
+          <label class="label py-1"><span class="label-text font-medium">Mã đơn</span></label>
+          <input id="code" value="#BK-2026-0042" class="input input-bordered w-full font-mono" placeholder="#BK-..." />
+        </div>
+        <div>
+          <label class="label py-1"><span class="label-text font-medium">Số điện thoại</span></label>
+          <input id="phone" value="0912 345 678" class="input input-bordered w-full" placeholder="09xx xxx xxx" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block gap-1"><i data-lucide="search" class="w-4 h-4"></i> Tra cứu</button>
+      </form>
+
+      <!-- Kết quả -->
+      <div id="result" class="hidden space-y-4">
+        <div class="divider text-xs text-base-content/40">Kết quả</div>
+
+        <div class="card bg-base-100 border border-base-200">
+          <div class="card-body p-4 gap-3">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-sm text-base-content/60">#BK-2026-0042</span>
+              <span class="badge badge-success badge-sm gap-1"><i data-lucide="check" class="w-3 h-3"></i> Đã xác nhận</span>
+            </div>
+            <h2 class="font-bold">Nhà hàng Trum Quán</h2>
+            <div class="grid grid-cols-2 gap-y-2 text-sm">
+              <span class="text-base-content/50 inline-flex items-center gap-1.5"><i data-lucide="calendar" class="w-4 h-4"></i> Ngày</span><b class="text-right">30/06/2026</b>
+              <span class="text-base-content/50 inline-flex items-center gap-1.5"><i data-lucide="clock" class="w-4 h-4"></i> Giờ</span><b class="text-right">19:00</b>
+              <span class="text-base-content/50 inline-flex items-center gap-1.5"><i data-lucide="users" class="w-4 h-4"></i> Số khách</span><b class="text-right">4 người</b>
+              <span class="text-base-content/50 inline-flex items-center gap-1.5"><i data-lucide="armchair" class="w-4 h-4"></i> Bàn</span><b class="text-right">B03 · Tầng 1</b>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tiến trình -->
+        <div class="card bg-base-100 border border-base-200"><div class="card-body p-4">
+          <h3 class="font-semibold text-sm mb-2">Tiến trình</h3>
+          <ul class="timeline timeline-vertical timeline-compact" id="tl"></ul>
+        </div></div>
+
+        <!-- Hành động -->
+        <div class="grid grid-cols-2 gap-2">
+          <button class="btn btn-outline btn-sm gap-1"><i data-lucide="clock" class="w-4 h-4"></i> Đổi giờ</button>
+          <button class="btn btn-outline btn-error btn-sm gap-1" onclick="cancelBooking()"><i data-lucide="x" class="w-4 h-4"></i> Huỷ đơn</button>
+        </div>
+        <a href="index.html" class="btn btn-ghost btn-sm btn-block gap-1"><i data-lucide="map-pin" class="w-4 h-4"></i> Xem trang quán</a>
+      </div>
+
+      <p class="text-center text-[11px] text-base-content/40">Tác giả: trung.duong (Trum)</p>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+    const STEPS = [
+      { t:'Đã gửi yêu cầu', time:'09:12', done:true, icon:'send' },
+      { t:'Quán đã xác nhận', time:'09:15', done:true, icon:'check' },
+      { t:'Đến quán & check-in', time:'19:00', done:false, icon:'door-open' },
+      { t:'Hoàn tất', time:'—', done:false, icon:'flag' },
+    ];
+    function renderTL(){
+      document.getElementById('tl').innerHTML = STEPS.map((s,i) => `
+        <li>
+          ${i>0?`<hr class="${s.done?'bg-brand':''}"/>`:''}
+          <div class="timeline-middle"><div class="w-7 h-7 rounded-full flex items-center justify-center ${s.done?'bg-brand text-white':'bg-base-200 text-base-content/40'}"><i data-lucide="${s.icon}" class="w-4 h-4"></i></div></div>
+          <div class="timeline-end mb-3 ml-1"><p class="text-sm font-medium ${s.done?'':'text-base-content/40'}">${s.t}</p><p class="text-xs text-base-content/50">${s.time}</p></div>
+          ${i<STEPS.length-1?`<hr class="${STEPS[i+1].done?'bg-brand':''}"/>`:''}
+        </li>`).join('');
+      lucide.createIcons();
+    }
+    document.getElementById('form').addEventListener('submit', e => {
+      e.preventDefault();
+      document.getElementById('result').classList.remove('hidden');
+      renderTL();
+      document.getElementById('result').scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+    function cancelBooking(){
+      if (confirm('Bạn chắc chắn muốn huỷ đơn #BK-2026-0042?')) alert('Đã gửi yêu cầu huỷ. Quán sẽ xác nhận trong giây lát. (demo)');
+    }
+  </script>
+</body>
+</html>

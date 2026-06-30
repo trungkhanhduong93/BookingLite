@@ -8,35 +8,18 @@ Tiêu chí cốt lõi: **Onboarding siêu nhanh**. Đây là **prototype tĩnh**
 
 ## Cấu trúc
 
-> Kiến trúc nghiệp vụ chi tiết: xem **ARCHITECTURE.md** (BA design).
-
 ```
 /index.html               # Trang chủ tổng — 2 lối vào (khách / chủ quán)
-/end-user/                # Luồng KHÁCH (mobile-first, khung điện thoại)
-  index.html              # Trang quán "Nhà hàng Trum Quán"
-  thuc-don.html           # Thực đơn theo danh mục
+/end-user/
+  index.html              # Trang quán "Nhà hàng Phố Cổ"
   1-chon-gio.html         # Step 1: chọn ngày, giờ, số khách
   2-thong-tin.html        # Step 2: thông tin liên hệ / login
   3-xac-nhan.html         # Step 3: xác nhận thành công (xoá sessionStorage)
-  tra-cuu.html            # Tra cứu & theo dõi/huỷ đơn (mã + SĐT)
-/merchant/                # App QUẢN TRỊ (drawer sidebar, responsive)
+/merchant/
   index.html              # Landing marketing + đăng nhập
   onboarding.html         # Nhập thông tin quán → nhận link đặt bàn
-  dashboard.html          # Tổng quan: KPI + đơn hôm nay
-  lich.html               # Lịch đặt bàn (timeline theo khung giờ)
-  ban.html                # Sơ đồ bàn (floor map theo khu vực)
-  khach-hang.html         # Khách hàng (CRM)
-  bao-cao.html            # Báo cáo & phân tích (biểu đồ CSS)
-  cai-dat.html            # Cài đặt quán (giờ, khung giờ, link/QR, thông báo)
-  booking-detail.html     # Chi tiết đơn (timeline trạng thái + thao tác)
-/favicon.svg              # Logo thương hiệu
-/ARCHITECTURE.md          # Tài liệu kiến trúc (BA)
+  dashboard.html          # Danh sách booking (table + stat)
 ```
-
-### App-shell quản trị (các trang /merchant trừ index & onboarding)
-- Dùng DaisyUI `drawer lg:drawer-open`: sidebar cố định ở `lg`, thu thành drawer ở mobile.
-- Sidebar nav dùng class `.navlink`; mục đang chọn thêm `.active` (nền cam, chữ trắng).
-- Topbar: nút `menu` (mở drawer, ẩn ở `lg`) + tiêu đề + chuông + avatar.
 
 ## Quy ước UI/UX dùng chung cho MỌI file HTML
 
